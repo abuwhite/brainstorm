@@ -9,4 +9,4 @@ def welcome_user():
 
     """
     user_name = prompt.string('May I have your name? ')
-    return 'Hello, {user}!'.format(user=user_name)
+    return 'Hello, {}!'.format(user_name)
