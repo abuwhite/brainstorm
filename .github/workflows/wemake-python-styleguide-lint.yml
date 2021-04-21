@@ -10,8 +10,8 @@ name: wemake-python-lint
 
 on:
   push:
-    paths:
-      - '*.py'
+    branches:
+      - main
 
 jobs:
   wemake-python:
