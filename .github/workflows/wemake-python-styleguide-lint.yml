@@ -11,7 +11,7 @@ name: wemake-python-lint
 on:
   push:
     branches:
-      - master
+      -main
 
 jobs:
   wemake-python:
