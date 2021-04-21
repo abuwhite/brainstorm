@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-         run: |
-            pip install poetry
-            make install
+        run: |
+          pip install poetry
+          make install
       - name: Wemake Lint
         run: make lint
