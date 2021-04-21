@@ -1,9 +1,19 @@
 #!/usr/bin/env python
-from brain_games.cli import welcome_user
+
+"""This is an brain-games."""
+
+from brain_games import cli
+
 
 def main():
+    """Return user name.
+
+    # noqa: DAR201
+
+    """
     print('Welcome to the Brain Games!')
-    print(welcome_user())
+    print(cli.welcome_user())
+
 
 if __name__ == '__main__':
     main()
