@@ -1,9 +1,8 @@
 #-----------------------
-#
 # Wemake Python Lint
+#
 # Boris Zhenikhov
 # 21 April 2021
-#
 #-----------------------
 
 name: wemake-python-lint
