@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 """This is an brain-games."""
 
 from brain_games import cli
