@@ -2,6 +2,8 @@
 
 import prompt
 import random
+from brain_games.scripts.brain_games import greeting, user_greeting
+from brain_games.cli import get_name
 
 
 def is_even(num):
@@ -10,14 +12,7 @@ def is_even(num):
     return 'no'
 
 
-def main():
-    print('Welcome to the Brain Games!\n')
-
-    user_name = prompt.string('May I have your name? ')
-    print('Hello, {user}!'.format(user=user_name))
-
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-
+def even(name):
     counter = 0
     round_count = 3
     while counter < round_count:
@@ -29,14 +24,24 @@ def main():
 
         if user_answer != correct_answer:
             return print('\'{wrong}\' is wrong answer ;(. Correct answer was \'{correct}\'. '
-                         '\nLet\'s try again, {name}!'.format(wrong=user_answer,
-                                                             correct=correct_answer,
-                                                             name=user_name))
+                         '\nLet\'s try again, {user}!'.format(wrong=user_answer,
+                                                              correct=correct_answer,
+                                                              user=name))
 
         print('Correct!')
         counter += 1
 
-    print('Congratulations, {name}!'.format(name=user_name))
+    print('Congratulations, {user}!'.format(user=name))
+
+
+def main():
+    greeting()
+    user_name = get_name()
+
+    print(user_greeting(user_name))
+    print('Answer "yes" if the number is even, otherwise answer "no".')
+
+    even(user_name)
 
 
 if __name__ == '__main__':
