@@ -1,12 +1,15 @@
 """This is an cli."""
+
 import prompt
 
-
-def welcome_user():
-    """Return user name.
-
-    # noqa: DAR201
-
-    """
+def get_name():
+    """Make a user interface."""
     user_name = prompt.string('May I have your name? ')
-    return 'Hello, {user}!'.format(user=user_name)
+    return user_name
+
+def main():
+    get_name()
+
+
+if __name__ == '__main__':
+    main()
