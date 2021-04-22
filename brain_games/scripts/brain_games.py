@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-
-"""This is an brain-games."""
+"""Greeting messages and users representation."""
 
 from brain_games import cli
 
