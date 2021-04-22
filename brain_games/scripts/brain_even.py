@@ -1,8 +1,7 @@
-
 """Main cli module for even game."""
 
 import prompt
-from random import randint
+import random
 
 
 def is_even(num):
@@ -22,7 +21,7 @@ def main():
     counter = 0
     round_count = 3
     while counter < round_count:
-        question = randint(1, 10)
+        question = random.randint(1, 10)
         print('Question: {random}'.format(random=question))
 
         user_answer = prompt.string('Your answer: ')
