@@ -1,16 +1,17 @@
 #-----------------------
-# Wemake Python Lint
+# Python CI
 #
 # Boris Zhenikhov
 # 21 April 2021
 #-----------------------
 
-name: wemake-python-lint
+name: Python CI
 
-on: push
+on:
+  - push
 
 jobs:
-  wemake-python:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
