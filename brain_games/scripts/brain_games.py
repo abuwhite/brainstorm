@@ -5,14 +5,11 @@
 from brain_games import cli
 
 
-def greeting():
+def greeting(user_name):
     """General user greeting."""
+    if user_name:
+        return 'Hello, {user}!'.format(user=user_name)
     print('Welcome to the Brain Games!')
-
-
-def user_greeting(user_name):
-    """Player's greeting."""
-    return 'Hello, {user}!'.format(user=user_name)
 
 
 def main():
