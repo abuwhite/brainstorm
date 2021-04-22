@@ -3,3 +3,6 @@
 
 ### Maintainability
 [![Maintainability](https://api.codeclimate.com/v1/badges/2bb66c194e439ea25c08/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl1/maintainability)
+
+### Linter status
+[![wemake-python-lint](https://github.com/notabu/python-project-lvl1/actions/workflows/wemake-python-styleguide-lint.yml/badge.svg)](https://github.com/notabu/python-project-lvl1/actions/workflows/wemake-python-styleguide-lint.yml)
