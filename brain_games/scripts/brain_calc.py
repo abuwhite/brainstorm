@@ -1,17 +1,11 @@
-"""Main cli module for calc game."""
+"""The main client module of the game even."""
 
-import prompt
-import random
-from brain_games.scripts.brain_games import greeting, user_greeting
-from brain_games.cli import get_name
+from brain_games.scripts.game_engine import game_engine
+from brain_games.games.calc import generate_round
 
 
 def main():
-    greeting()
-    user_name = get_name()
-    welcome_user = user_greeting(user_name)
-    print(welcome_user)
-    print(user_name)
+    game_engine(generate_round)
 
 
 if __name__ == '__main__':
