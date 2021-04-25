@@ -1,15 +1,19 @@
-"""This is an cli."""
+"""Greeting messages and users representation."""
 
 import prompt
 
-def get_name():
-    """Make a user interface."""
+
+def greet():
+    """General user greeting."""
+    return 'Welcome to the Brain Games!'
+
+
+def get_player_name():
+    """Getting the user name."""
     user_name = prompt.string('May I have your name? ')
     return user_name
 
-def main():
-    get_name()
 
-
-if __name__ == '__main__':
-    main()
+def player_greet(name):
+    """Player user greeting."""
+    return 'Hello, {player}!'.format(player=name)
