@@ -3,32 +3,31 @@
 """Игровой движок."""
 
 import prompt
-from brain_games.cli import greet, get_player_name, player_greet
-
+from brain_games import cli
 
 NUMBER_ROUNDS = 3  # Количество раундов в игре.
 
 
-def game_engine(generate_round, rules):
+def run(game):
     """Приветствует игрока, показывает правила и запускает игру."""
 
     # Приветствуем пользователя в игре
-    initial_greeting = greet()
+    initial_greeting = cli.greet()
     print(initial_greeting)
 
     # Спрашиваем имя игрока у пользователя
-    player_name = get_player_name()
+    player_name = cli.get_player_name()
 
     # Приветствуем игрока по имени
-    greeting_player = player_greet(player_name)
+    greeting_player = cli.player_greet(player_name)
     print(greeting_player)
 
     # Рассказываем о правилах игры
-    print(rules)
+    print(game.RULES)
 
     round_count = 0  # Счётчик раундов
     while round_count < NUMBER_ROUNDS:
-        (question, answer) = generate_round()
+        (question, answer) = game.generate_round()
 
         # Задаём вопрос игроку
         print('Question: {random}'.format(random=question))
@@ -48,7 +47,8 @@ def game_engine(generate_round, rules):
 
         # Если игрок даст неверный ответ, завершаем игру и выводим сообщение
         print(wrong, correct)
-        return print(end_game)
+        print(end_game)
+        return
 
-    # Если игрок ответил на все верно, поздравляем игрока и завершаем игру
+        # Если игрок ответил на все верно, поздравляем игрока и завершаем игру
     return print('Congratulations, {user}!'.format(user=player_name))
