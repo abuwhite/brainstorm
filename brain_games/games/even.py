@@ -2,6 +2,9 @@
 
 import random
 
+# Правила игры
+RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
+
 
 def is_even(num):
     if (num % 2) == 0:
@@ -13,9 +16,7 @@ def generate_number():
     return random.randint(1, 10)
 
 
-def generate_round(condition=False):
-    if condition == 'condition':
-        return 'Answer "yes" if the number is even, otherwise answer "no".'
+def generate_round():
     question = generate_number()
     answer = is_even(question)
     return question, answer
