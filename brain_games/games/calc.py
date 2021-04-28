@@ -1,4 +1,4 @@
-"""Module with the logic of the game even."""
+"""Module with the logic of the game calc."""
 
 import random
 
