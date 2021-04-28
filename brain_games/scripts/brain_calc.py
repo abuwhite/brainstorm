@@ -1,4 +1,4 @@
-"""The main client module of the game even."""
+"""The main client module of the game calc."""
 
 from brain_games import games
 from brain_games.scripts import engine
