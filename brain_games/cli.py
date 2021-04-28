@@ -4,16 +4,30 @@ import prompt
 
 
 def greet():
-    """General user greeting."""
+    """Приветствуем пользователя в игре.
+
+    Returns:
+        str: Приветствие пользователя в игре.
+    """
     return 'Welcome to the Brain Games!'
 
 
 def get_player_name():
-    """Getting the user name."""
-    user_name = prompt.string('May I have your name? ')
-    return user_name
+    """Запрос имени пользователя.
+
+    Returns:
+        str: Возвращаем имя игрока.
+    """
+    return prompt.string('May I have your name? ')
 
 
 def player_greet(name):
-    """Player user greeting."""
+    """Приветствие игрока.
+
+    Args:
+        name: Имя игрока
+
+    Returns:
+        str: Приветствуем игрока по имени.
+    """
     return 'Hello, {player}!'.format(player=name)
