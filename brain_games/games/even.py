@@ -3,12 +3,8 @@
 import random
 
 
-def is_even(num):
-    return True if (num % 2) == 0 else False
-
-
-def get_answer(question):
-    return 'yes' if is_even(question) else 'no'
+def get_correct_answer(num):
+    return 'yes' if (num % 2) == 0 else 'no'
 
 
 def generate_number():
@@ -22,5 +18,5 @@ RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 # Генерируем вопрос и правильный ответ
 def generate_round():
     question = generate_number()
-    answer = get_answer(question)
+    answer = get_correct_answer(question)
     return question, answer
