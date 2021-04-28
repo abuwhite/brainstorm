@@ -9,46 +9,42 @@ NUMBER_ROUNDS = 3  # Количество раундов в игре.
 
 
 def run(game):
-    """Приветствует игрока, показывает правила и запускает игру."""
+    """Приветствует игрока, показывает правила и запускает игру.
 
+    Args:
+        game: Логика игры
+    """
     # Приветствуем пользователя в игре
-    initial_greeting = cli.greet()
-    print(initial_greeting)
+    print(cli.greet())
 
     # Спрашиваем имя игрока у пользователя
     player_name = cli.get_player_name()
 
     # Приветствуем игрока по имени
-    greeting_player = cli.player_greet(player_name)
-    print(greeting_player)
+    print(cli.player_greet(player_name))
 
     # Рассказываем о правилах игры
     print(game.RULES)
 
     round_count = 0  # Счётчик раундов
     while round_count < NUMBER_ROUNDS:
-        (question, answer) = game.generate_round()
+        question, correct = game.generate_round()
 
         # Задаём вопрос игроку
         print('Question: {random}'.format(random=question))
 
         # Получаем ответ игрока
-        player_answer = prompt.string('Your answer: ')
+        answer = prompt.string('Your answer: ')
 
-        # Если игрок даст верный ответ
-        if player_answer == answer:
-            print('Correct!')  # Выводим сообщение
-            round_count += 1  # Увеличиваем счётчик
-            continue  # Повторяем цикл
-
-        wrong = "'{wrong}' is wrong answer ;(.".format(wrong=player_answer)
-        correct = "Correct answer was '{correct}'".format(correct=answer)
-        end_game = "Let's try again, {user}!".format(user=player_name)
-
-        # Если игрок даст неверный ответ, завершаем игру и выводим сообщение
-        print(wrong, correct)
-        print(end_game)
-        return
-
-        # Если игрок ответил на все верно, поздравляем игрока и завершаем игру
-    return print('Congratulations, {user}!'.format(user=player_name))
+        # Если игрок даст не верный ответ завершаем игру и выводим сообщение
+        if answer != correct:
+            first = "'{a}' is wrong answer ;(. ".format(a=answer)
+            second = "Correct answer was '{b}'".format(b=correct)
+            print(first, second)
+            print("Let's try again, {user}!".format(user=player_name))
+            break
+        print('Correct!')  # Выводим сообщение
+        round_count += 1  # Увеличиваем счётчик
+    else:
+        # Поздравляем игрока и завершаем игру
+        print('Congratulations, {user}!'.format(user=player_name))
