@@ -38,7 +38,7 @@ def run(game):
 
         # Если игрок даст не верный ответ завершаем игру и выводим сообщение
         if answer != correct:
-            first = "'{a}' is wrong answer ;(. ".format(a=answer)
+            first = "'{a}' is wrong answer ;(.".format(a=answer)
             second = "Correct answer was '{b}'".format(b=correct)
             print(first, second)
             print("Let's try again, {user}!".format(user=player_name))
