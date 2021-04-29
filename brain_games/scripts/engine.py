@@ -48,3 +48,12 @@ def run(game):
     else:
         # Поздравляем игрока и завершаем игру
         print('Congratulations, {user}!'.format(user=player_name))
+
+
+def main():
+    """Скрипт запуска движка с логикой игры."""
+    run()
+
+
+if __name__ == '__main__':
+    main()
