@@ -1,7 +1,6 @@
 """The main client module of the game even."""
 
-from brain_games import games
-from brain_games.scripts import engine
+from brain_games import games, engine
 
 
 def main():
