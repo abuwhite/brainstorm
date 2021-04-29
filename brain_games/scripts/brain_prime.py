@@ -1,6 +1,6 @@
 """The main client module of the game prime."""
 
-from brain_games import games, engine
+from brain_games import engine, games
 
 
 def main():
