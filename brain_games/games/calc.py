@@ -37,7 +37,7 @@ def generate_question():
 
 
 # Правила игры
-RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
+RULES = 'What is the result of the expression?'
 
 
 # Генерируем вопрос и правильный ответ
