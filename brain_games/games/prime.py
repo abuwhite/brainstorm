@@ -1,9 +1,9 @@
-"""Module with the logic of the game even."""
+"""Module with the logic of the game prime."""
 
 import random
 
 # Правила игры
-RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
+RULES = '"yes" if given number is prime. Otherwise answer "no".'
 
 
 def get_correct_result(num):
@@ -15,7 +15,13 @@ def get_correct_result(num):
     Returns:
         bool: Если число простое, то возвращаем да, иначе нет.
     """
-    return 'yes' if (num % 2) == 0 else 'no'
+    if num > 1:
+        # check for factors
+        for index in range(2, num):
+            if (num % index) == 0:
+                return 'yes'
+        return 'yes'
+    return 'no'
 
 
 def generate_number():

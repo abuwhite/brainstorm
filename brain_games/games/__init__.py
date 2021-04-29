@@ -1,2 +1,2 @@
 """This is an example script."""
-from brain_games.games import calc, even, gcd, progression  # noqa: F401
+from brain_games.games import calc, even, gcd, prime, progression  # noqa: F401

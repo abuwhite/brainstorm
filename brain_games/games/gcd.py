@@ -2,6 +2,9 @@
 import math
 import random
 
+# Правила игры
+RULES = 'Find the greatest common divisor of given numbers.'
+
 
 def generate_question():
     """Генерируем первое и второе число от 1 до 100.
@@ -14,10 +17,6 @@ def generate_question():
     first_num = random.randint(1, 100)
     second_num = random.randint(1, 100)
     return first_num, second_num
-
-
-# Правила игры
-RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def generate_round():
