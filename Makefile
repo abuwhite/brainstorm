@@ -11,7 +11,7 @@ publish:
 	poetry publish --dry-run
 
 package-install:
-	python3 -m pip install --user dist/*.whl
+	python3 -m pip install --user dist/*.whl --upgrade
 
 brain-games:
 	poetry run brain-games
@@ -21,3 +21,6 @@ brain-even:
 
 brain-calc:
 	poetry run brain-calc
+
+brain-gcd:
+	poetry run brain-gcd
