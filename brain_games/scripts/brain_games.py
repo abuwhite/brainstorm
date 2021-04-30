@@ -8,7 +8,14 @@ from brain_games import cli
 
 def main():
     """Start game."""
+    # Приветствуем пользователя в игре
     cli.greet()
+
+    # Спрашиваем имя игрока у пользователя
+    player_name = cli.get_player_name()
+
+    # Приветствуем игрока по имени
+    print(cli.player_greet(player_name))
 
 
 if __name__ == 'main':
