@@ -6,12 +6,8 @@ import prompt
 
 
 def greet():
-    """Приветствуем пользователя в игре.
-
-    Returns:
-        str: Приветствие пользователя в игре.
-    """
-    return 'Welcome to the Brain Games!'
+    """Приветствуем пользователя в игре."""
+    print('Welcome to the Brain Games!')
 
 
 def get_player_name():

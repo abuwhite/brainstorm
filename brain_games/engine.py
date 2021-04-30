@@ -15,7 +15,7 @@ def run(game):
         game: Логика игры
     """
     # Приветствуем пользователя в игре
-    print(cli.greet())
+    cli.greet()
 
     # Спрашиваем имя игрока у пользователя
     player_name = cli.get_player_name()
