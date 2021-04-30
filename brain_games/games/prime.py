@@ -21,7 +21,7 @@ def get_correct_result(num):
         # check for factors
         for index in range(2, num):
             if (num % index) == 0:
-                return 'yes'
+                return 'no'
         return 'yes'
     return 'no'
 
