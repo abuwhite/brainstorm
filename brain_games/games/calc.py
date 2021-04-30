@@ -20,7 +20,7 @@ def calculate_expression(first_num, second_num, operator):
     if operator == '+':
         return str(first_num + second_num)
     if operator == '-':
-        return str(abs(first_num - second_num))
+        return str(first_num - second_num)
     if operator == '*':
         return str(first_num * second_num)
 
