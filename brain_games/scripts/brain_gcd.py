@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """The main client module of the game gcd."""
 
 from brain_games import engine, games
