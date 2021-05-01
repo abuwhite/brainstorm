@@ -1,8 +1,6 @@
 # Brain-Games
 
 A set of five console games built on the principle of popular mobile applications for brain pumping.
-
-### Description
 Each game asks questions that need to be answered correctly. After three correct answers, the game is considered completed. Incorrect answers end the game and offer to play it again.
 
 ### Games
