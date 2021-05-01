@@ -14,7 +14,7 @@ Each game asks questions that need to be answered correctly. After three correct
 
 ###Progression
 
-`$ brain-progression
+```$ brain-progression
 Welcome to the Brain Game!
 What number is missing in this progression?
 May I have your name? Roman
@@ -28,7 +28,8 @@ Correct!
 Question: 12 15 18 21 .. 27 30 33
 Your answer: 24 # Пользователь вводит ответ
 Correct!
-Congratulations, Roman!`
+Congratulations, Roman!
+```
 
 #### Hexlet tests and linter status:
 [![Actions Status](https://github.com/notabu/python-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/notabu/python-project-lvl1/actions)
