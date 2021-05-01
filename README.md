@@ -10,8 +10,10 @@ Each game asks questions that need to be answered correctly. After three correct
 + Determining the greatest common divisor.
 + Definition of a prime number.
 
-## Example game:
+## Example game
+
 ###Progression
+
 `$ brain-progression
 Welcome to the Brain Game!
 What number is missing in this progression?
