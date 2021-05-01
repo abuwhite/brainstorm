@@ -1,4 +1,4 @@
-# Brain-Games
+# Brain Games
 
 A set of five console games built on the principle of popular mobile applications for brain pumping.
 Each game asks questions that need to be answered correctly. After three correct answers, the game is considered completed. Incorrect answers end the game and offer to play it again.
@@ -9,6 +9,24 @@ Each game asks questions that need to be answered correctly. After three correct
 + Determining an even number.
 + Determining the greatest common divisor.
 + Definition of a prime number.
+
+## Example game:
+###Progression
+`$ brain-progression
+Welcome to the Brain Game!
+What number is missing in this progression?
+May I have your name? Roman
+Hello, Roman!
+Question: 14 .. 18 20 22 24 26 28
+Your answer: 16 # Пользователь вводит ответ
+Correct!
+Question: 5 6 7 8 9 .. 11 12
+Your answer: 10 # Пользователь вводит ответ
+Correct!
+Question: 12 15 18 21 .. 27 30 33
+Your answer: 24 # Пользователь вводит ответ
+Correct!
+Congratulations, Roman!`
 
 #### Hexlet tests and linter status:
 [![Actions Status](https://github.com/notabu/python-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/notabu/python-project-lvl1/actions)
