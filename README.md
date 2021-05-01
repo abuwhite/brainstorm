@@ -1,4 +1,4 @@
-## Brain-Games
+# Brain-Games
 
 A set of five console games built on the principle of popular mobile applications for brain pumping.
 
