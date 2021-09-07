@@ -1,20 +1,14 @@
 install:
 	poetry install
+	make build
+	python3 -m pip install --user dist/*.whl --force-reinstall
 
-clean:
-	 rm -rf /home/notabu/python-project-lvl1/dist/*
-
-build: clean
+build:
+	rm -rf dist/*
 	poetry build
 
 lint:
 	poetry run flake8 brain_games
-
-publish:
-	poetry publish --dry-run
-
-package-install:
-	python3 -m pip install --user dist/*.whl
 
 brain-games:
 	poetry run brain-games
