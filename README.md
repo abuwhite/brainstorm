@@ -130,4 +130,4 @@ Congratulations, Tirion!
 ```
 
 ## License
-[MIT](https://github.com/znhv/differenpy/blob/main/LICENSE)
+[MIT](https://github.com/znhv/brain-games/blob/main/LICENSE)
