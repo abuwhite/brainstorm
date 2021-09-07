@@ -19,8 +19,8 @@ make install
    
 ## Usage
 
-
 **Brain Even.**
+
 The user is presented And he has to answer yes if the number is even, or no if it is odd.
 ```shell
 $ brain-even
@@ -42,6 +42,7 @@ Congratulations, Sam!
 ```
 
 **Brain Calc.**
+
 The user is shown a random mathematical expression, such as 35 + 16, which must be calculated and write down the correct answer.
 ```shell
 $ brain-calc
@@ -63,6 +64,7 @@ Congratulations, Sam!
 ```
 
 **Brain Gcd.**
+
 The user is shown two random numbers, e.g., 25 50. The user must calculate and enter the greatest common divisor of these numbers.
 ```shell
 $ brain-gcd
@@ -84,6 +86,7 @@ Congratulations, Sam!
 ```
 
 **Brain Progression.**
+
 The user is shown a series of numbers that form an arithmetic progression, replacing any of the numbers with two dots. The player must determine this number.
 ```shell
 $ brain-progression
@@ -106,6 +109,7 @@ Congratulations, Sam!
 
 
 **Brain Prime.**
+
 The user is shown a random number. The player must determine if it is a prime number.
 ```shell
 $ brain-prime
