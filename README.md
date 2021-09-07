@@ -5,13 +5,6 @@
 
 A set of five console games along the lines of popular mobile brain-pumping apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered completed. Incorrect answers end the game and prompt you to play it again.
 
-### Games
-+ Calculator. Arithmetic expressions to be evaluated.
-+ Progression. Search for missing numbers in a sequence of numbers.
-+ Determining an even number.
-+ Determining the greatest common divisor.
-+ Definition of a prime number.
-
 
 ## Installation
 
@@ -26,6 +19,9 @@ make install
    
 ## Usage
 
+
+**Brain Even.**
+The user is presented And he has to answer yes if the number is even, or no if it is odd.
 ```shell
 $ brain-even
 
@@ -45,6 +41,8 @@ Correct!
 Congratulations, Sam!
 ```
 
+**Brain Calc.**
+The user is shown a random mathematical expression, such as 35 + 16, which must be calculated and write down the correct answer.
 ```shell
 $ brain-calc
 
@@ -64,7 +62,8 @@ Correct!
 Congratulations, Sam!
 ```
 
-
+**Brain Gcd.**
+The user is shown two random numbers, e.g., 25 50. The user must calculate and enter the greatest common divisor of these numbers.
 ```shell
 $ brain-gcd
 
@@ -84,6 +83,8 @@ Correct!
 Congratulations, Sam!               
 ```
 
+**Brain Progression.**
+The user is shown a series of numbers that form an arithmetic progression, replacing any of the numbers with two dots. The player must determine this number.
 ```shell
 $ brain-progression
 
@@ -103,6 +104,9 @@ Correct!
 Congratulations, Sam!
 ```
 
+
+**Brain Prime.**
+The user is shown a random number. The player must determine if it is a prime number.
 ```shell
 $ brain-prime
 Welcome to the Brain Games!
