@@ -9,7 +9,8 @@ NUMBER_ROUNDS = 3  # Количество раундов в игре.
 
 user = Player()
 
-def start():
+
+def main():
     """
     Приветствует игрока, показывает правила и запускает игру.
 
@@ -27,4 +28,4 @@ def start():
 
 
 if __name__ == '__main__':
-    start()
+    main()

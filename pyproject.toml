@@ -24,9 +24,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-brain-games = "oasis.scripts.brain_games:main"
-brain-even = "oasis.scripts.brain_even:main"
-brain-calc = "oasis.scripts.brain_calc:main"
-brain-gcd = "oasis.scripts.brain_gcd:main"
-brain-progression = "oasis.scripts.brain_progression:main"
-brain-prime = "oasis.scripts.brain_prime:main"
+oasis = "oasis.__main__:main"
