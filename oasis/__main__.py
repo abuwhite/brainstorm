@@ -3,29 +3,31 @@
 """Игровой движок."""
 
 import prompt
-from oasis.cli import Player
-
-NUMBER_ROUNDS = 3  # Количество раундов в игре.
+from oasis.scripts.cli import Player
+from oasis.scripts import engine
+from oasis.games import calc
+from oasis import config
 
 user = Player()
 
 
-def main():
+def run():
     """
-    Приветствует игрока, показывает правила и запускает игру.
+    Greets the player, shows the rules and starts the game.
+    """
 
-    Args:
-        game: Логика игры
-    """
     # Приветствуем пользователя в игре
     print('Welcome to the Winsio!')
 
-    # Спрашиваем имя игрока у пользователя, и запоминаем
+    # Спрашиваем имя у пользователя и запоминаем
     user.name = prompt.string('May I have your name? ')
 
-    # Приветствуем игрока по имени
-    print(user.greet)
+    text = 'Hello, {user}, choose a game:'.format(user=user.name) + '\n' + '\n'.join(config.GAMES)
+
+    print(text)
+
+    engine.run(calc, player_name=user.name)
 
 
 if __name__ == '__main__':
-    main()
+    run()

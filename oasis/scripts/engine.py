@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-"""Игровой движок."""
+"""Game engine module."""
 
 import prompt
-from oasis import cli
-
-NUMBER_ROUNDS = 3  # Количество раундов в игре.
+from oasis.config import NUMBER_ROUNDS
 
 
-def run(game):
+def run(game, player_name):
     # Рассказываем о правилах игры
-    # print(game.RULES)
+    print(game.RULES)
 
     round_count = 0  # Счётчик раундов
     while round_count < NUMBER_ROUNDS:
