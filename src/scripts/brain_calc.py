@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""The main client module of the game prime."""
+"""The main client module of the game calc."""
 
-from brain_games import engine, games
+from src import engine, games
 
 
 def main():
     """Скрипт запуска движка с логикой игры."""
-    engine.run(games.prime)
+    engine.run(games.calc)
 
 
 if __name__ == '__main__':

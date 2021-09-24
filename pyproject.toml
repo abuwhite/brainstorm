@@ -1,14 +1,19 @@
 [tool.poetry]
-name = "hexlet-code"
-version = "0.1.7"
-description = ""
-authors = ["notabu <samyyklass@gmail.com>"]
+name = "winsio"
+version = "0.1.8"
+description = "A set of five console games built on the principle of popular mobile applications for brain pumping."
+authors = ["Boris Zhenikhov <znhv@yandex.com>"]
+
+license = "MIT"
+
+readme = "README.md"
+
 packages = [
-  { include = "brain_games" },
+  { include = "src" },
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 prompt = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
@@ -19,9 +24,9 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-brain-games = "brain_games.scripts.brain_games:main"
-brain-even = "brain_games.scripts.brain_even:main"
-brain-calc = "brain_games.scripts.brain_calc:main"
-brain-gcd = "brain_games.scripts.brain_gcd:main"
-brain-progression = "brain_games.scripts.brain_progression:main"
-brain-prime = "brain_games.scripts.brain_prime:main"
+brain-games = "src.scripts.brain_games:main"
+brain-even = "src.scripts.brain_even:main"
+brain-calc = "src.scripts.brain_calc:main"
+brain-gcd = "src.scripts.brain_gcd:main"
+brain-progression = "src.scripts.brain_progression:main"
+brain-prime = "src.scripts.brain_prime:main"

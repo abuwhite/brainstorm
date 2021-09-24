@@ -3,7 +3,7 @@
 
 """Brain games main executable module."""
 
-from brain_games import cli
+from src import cli
 
 
 def main():

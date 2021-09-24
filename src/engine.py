@@ -3,7 +3,7 @@
 """Игровой движок."""
 
 import prompt
-from brain_games import cli
+from src import cli
 
 NUMBER_ROUNDS = 3  # Количество раундов в игре.
 
