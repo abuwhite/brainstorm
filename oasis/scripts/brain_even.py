@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""The main client module of the game gcd."""
+"""The main client module of the game even."""
 
-from src import engine, games
+from oasis import __main__, games
 
 
 def main():
     """Скрипт запуска движка с логикой игры."""
-    engine.run(games.gcd)
+    __main__.start(games.even)
 
 
 if __name__ == '__main__':

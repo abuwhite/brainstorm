@@ -4,24 +4,24 @@ Games
 **Brain Even.**
 
 The user is presented And he has to answer yes if the number is even, or no if it is odd.
-```shell
-$ brain-even
+code-block:: shell
+    $ brain-even
 
-Welcome to the Brain Games!
-May I have your name? Sam
-Hello, Sam!
-Answer "yes" if the number is even, otherwise answer "no".
-Question: 15
-Your answer: no
-Correct!
-Question: 6
-Your answer: yes
-Correct!
-Question: 7
-Your answer: no
-Correct!
-Congratulations, Sam!
-```
+    Welcome to the Brain Games!
+    May I have your name? Sam
+    Hello, Sam!
+    Answer "yes" if the number is even, otherwise answer "no".
+    Question: 15
+    Your answer: no
+    Correct!
+    Question: 6
+    Your answer: yes
+    Correct!
+    Question: 7
+    Your answer: no
+    Correct!
+    Congratulations, Sam!
+
 
 **Brain Calc.**
 

@@ -3,28 +3,14 @@
 """Игровой движок."""
 
 import prompt
-from src import cli
+from oasis import cli
 
 NUMBER_ROUNDS = 3  # Количество раундов в игре.
 
 
 def run(game):
-    """Приветствует игрока, показывает правила и запускает игру.
-
-    Args:
-        game: Логика игры
-    """
-    # Приветствуем пользователя в игре
-    cli.greet()
-
-    # Спрашиваем имя игрока у пользователя
-    player_name = cli.get_player_name()
-
-    # Приветствуем игрока по имени
-    print(cli.player_greet(player_name))
-
     # Рассказываем о правилах игры
-    print(game.RULES)
+    # print(game.RULES)
 
     round_count = 0  # Счётчик раундов
     while round_count < NUMBER_ROUNDS:

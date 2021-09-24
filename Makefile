@@ -8,7 +8,7 @@ build:
 	poetry build
 
 lint:
-	poetry run flake8 brain_games
+	poetry run flake8 oasis
 
 brain-games:
 	poetry run brain-games

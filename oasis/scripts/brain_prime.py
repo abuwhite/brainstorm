@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""The main client module of the game progression."""
+"""The main client module of the game prime."""
 
-from src import engine, games
+from oasis import __main__, games
 
 
 def main():
     """Скрипт запуска движка с логикой игры."""
-    engine.run(games.progression)
+    __main__.start(games.prime)
 
 
 if __name__ == '__main__':
