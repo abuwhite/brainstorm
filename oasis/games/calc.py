@@ -5,6 +5,11 @@
 import random
 
 
+NAME = 'Calc'
+RULES = 'What is the result of the expression?'
+
+
+
 def calculate_expression(first_num, second_num, operator):
     """Вычисляем выражение.
 
@@ -36,10 +41,6 @@ def generate_question():
     second_num = random.randint(1, 10)
     operator = random.choice('+-*')
     return first_num, operator, second_num
-
-
-# Правила игры
-RULES = 'What is the result of the expression?'
 
 
 # Генерируем вопрос и правильный ответ

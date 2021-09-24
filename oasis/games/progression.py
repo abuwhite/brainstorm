@@ -3,7 +3,7 @@
 """Module with the logic of the game gcd."""
 import random
 
-# Правила игры
+NAME = 'Progression'
 RULES = 'What number is missing in the progression?'
 
 # Длина прогрессии

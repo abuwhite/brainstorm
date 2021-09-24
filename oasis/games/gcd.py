@@ -4,7 +4,7 @@
 import math
 import random
 
-# Правила игры
+NAME = 'GCD'
 RULES = 'Find the greatest common divisor of given numbers.'
 
 

@@ -5,8 +5,7 @@
 import prompt
 from oasis.scripts.cli import Player
 from oasis.scripts import engine
-from oasis.games import calc
-from oasis import config
+from oasis.config import GAMES, MODULES
 
 user = Player()
 
@@ -17,16 +16,20 @@ def run():
     """
 
     # Приветствуем пользователя в игре
-    print('Welcome to the Winsio!')
+    print('Добро пожаловать в Winsio!')
 
     # Спрашиваем имя у пользователя и запоминаем
-    user.name = prompt.string('May I have your name? ')
+    user.name = prompt.string('Как вас зовут? ')
 
-    text = 'Hello, {user}, choose a game:'.format(user=user.name) + '\n' + '\n'.join(config.GAMES)
+    print('Привет, {user}, выбери игру:'.format(user=user.name))
+    print()
+    print('\n'.join(GAMES))
+    game_index = prompt.integer('Введите цифру: ', 0)
+    print()
 
-    print(text)
+    print('[START GAME]', MODULES[game_index].NAME)
 
-    engine.run(calc, player_name=user.name)
+    engine.run(MODULES[game_index], player_name=user.name)
 
 
 if __name__ == '__main__':

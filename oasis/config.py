@@ -1,8 +1,22 @@
-GAMES = ['1: Calc',
-         '2: Even',
-         '3: Gcd',
-         '4: Prime',
-         '5: Progression'
-         ]
+"""Main config."""
 
-NUMBER_ROUNDS = 3  # Количество раундов в игре.
+
+from oasis.games import calc, even, gcd, prime, progression
+
+NUMBER_ROUNDS = 3  # The number of rounds in the game.
+
+GAMES = [
+    '0: Calc',
+    '1: Even',
+    '2: Gcd',
+    '3: Prime',
+    '4: Progression'
+]
+
+MODULES = {
+    0: calc,
+    1: even,
+    2: gcd,
+    3: prime,
+    4: progression
+}

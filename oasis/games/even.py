@@ -4,7 +4,7 @@
 
 import random
 
-# Правила игры
+NAME = 'Even'
 RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
