@@ -14,20 +14,21 @@ user = Player()
 def run():
     """Greets the player, shows the rules and starts the game."""
 
-    # Приветствуем пользователя в игре
+    # Player great
     time.sleep(1.6)
+    print()
 
-    # Спрашиваем имя у пользователя и запоминаем
-    print('Как вас зовут?')
+    # Ask user name
+    print("What's your name?")
     user.name = prompt.string('\n> ')
 
     time.sleep(1.6)
-    print('Привет, {user}, выбери игру:'.format(user=user.name))
+    print('Hey, {user}, choose game:'.format(user=user.name))
 
     time.sleep(1)
     print()
     print('\n'.join(GAMES) + '\n')
-    game_index = prompt.integer('Введите цифру: ', 0)
+    game_index = prompt.integer('Enter number: ', 0)
     print()
 
     time.sleep(1.8)
@@ -36,30 +37,32 @@ def run():
     engine.run(MODULES[game_index], player_name=user.name)
 
 
-class TextAdventureCmd(cmd.Cmd):
+class GameShell(cmd.Cmd):
     intro = 'Welcome to the Winsio.   Type help or ? to list commands.\n'
     prompt = '> '
 
     # The default() method is called when none of the other do_*() command methods match.
     def default(self, line):
-        print('I do not understand that command. Type "help" for a list of commands.')
+        print('I do not understand that command. Type help or ? to list commands.\n')
 
     def do_start(self, line):
+        """start           -- Initializing the game engine"""
         run()
 
     # A very simple "quit" command to terminate the program:
     def do_quit(self, line):
-        """WTF."""
-        return True # this exits the Cmd application loop in TextAdventureCmd.cmdloop()
+        return True  # this exits the Cmd application loop in TextAdventureCmd.cmdloop()
 
     def help_combat(self):
         print('Combat is not implemented in this program.')
 
+    def help_game(self):
+        print('Help for this game.')
 
 
 if __name__ == '__main__':
-    print('Text Adventure Demo!')
-    print('====================')
+    # print('Text Adventure Demo!')
+    # print('====================')
 
-    TextAdventureCmd().cmdloop()
+    GameShell().cmdloop()
     print('Thanks for playing!')
