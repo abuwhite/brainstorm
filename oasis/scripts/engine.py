@@ -7,7 +7,7 @@ from oasis.config import NUMBER_ROUNDS
 
 
 def run(game, player_name):
-    # Рассказываем о правилах игры
+    """Start engine game."""
     print(game.RULES)
 
     round_count = 0  # Счётчик раундов

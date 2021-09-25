@@ -4,10 +4,8 @@
 
 import random
 
-
 NAME = 'Calc'
 RULES = 'What is the result of the expression?'
-
 
 
 def calculate_expression(first_num, second_num, operator):
