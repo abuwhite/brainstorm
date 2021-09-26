@@ -40,8 +40,7 @@ def generate_question():
     operator = random.choice('+-*')
     if first_num <= second_num:
         return second_num, operator, first_num
-    else:
-        return first_num, operator, second_num
+    return first_num, operator, second_num
 
 
 # Генерируем вопрос и правильный ответ

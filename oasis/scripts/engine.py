@@ -8,7 +8,15 @@ from termcolor import colored, cprint
 
 
 def run(game, player_name):
-    """Start engine game."""
+    """Start engine game.
+
+    Args:
+        game: Game module.
+        player_name: Player's name.
+
+    Returns:
+        int: Player score.
+    """
     print(game.RULES, '\n')
 
     score = 0
@@ -34,9 +42,10 @@ def run(game, player_name):
         score += 1
 
     else:
-        cprint('Congratulations, {user}!\n'.format(user=player_name),
-               'magenta',
-               attrs=['bold']
-               )
+        cprint(
+            'Congratulations, {user}!\n'.format(user=player_name),
+            'magenta',
+            attrs=['bold'],
+        )
 
     return score

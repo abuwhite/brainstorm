@@ -4,19 +4,19 @@
 
 import cmd
 import textwrap as tw
+
 import prompt
-from termcolor import colored
 from oasis.config.config import GAMES, MODULES
+from oasis.config.constants import NEWLINE, TEXT_WIDTH
 from oasis.scripts import engine
 from oasis.scripts.cli import Player
-
+from termcolor import colored
 
 user = Player()
 
-NEWLINE = '\n'
-
 
 def create_title(data):
+    """Creat title."""
     print('============= [{}] ============='.format(data))
 
 
@@ -56,7 +56,7 @@ class GameShell(cmd.Cmd):
         print(colored('Player:', attrs=['bold']), user.name)
         print(colored('Score:', attrs=['bold']),
               user.score,
-              NEWLINE
+              NEWLINE,
               )
 
     @staticmethod
@@ -67,13 +67,18 @@ class GameShell(cmd.Cmd):
     @staticmethod
     def help_game():
         description = """
-        A set of five console games along the lines of popular mobile brain-pumping apps. 
-        Each game asks questions that need to be answered correctly.
-        After three correct answers, the game is considered completed.
-        Incorrect answers end the game and prompt you to play it again.
+        A set of five console games along the lines of popular 
+        mobile brain-pumping apps. Each game asks questions that need 
+        to be answered correctly. After three correct answers, the game 
+        is considered completed. Incorrect answers end the game and 
+        prompt you to play it again.
         """
         dedented_text = tw.dedent(description).strip()
-        print(NEWLINE, tw.fill(dedented_text, width=50), NEWLINE)
+        print(
+            NEWLINE,
+            tw.fill(dedented_text, width=TEXT_WIDTH),
+            NEWLINE,
+        )
 
 
 if __name__ == '__main__':
