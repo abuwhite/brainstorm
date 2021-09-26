@@ -1,68 +1,85 @@
 # -*- coding: utf-8 -*-
 
-"""Игровой движок."""
+"""Main module."""
+
 import cmd
-import time
+import textwrap as tw
 import prompt
-from oasis.config import GAMES, MODULES
+from termcolor import colored
+from oasis.config.config import GAMES, MODULES
 from oasis.scripts import engine
 from oasis.scripts.cli import Player
 
+
 user = Player()
 
+NEWLINE = '\n'
 
-def run():
+
+def create_title(data):
+    print('============= [{}] ============='.format(data))
+
+
+def main():
     """Greets the player, shows the rules and starts the game."""
 
-    # Player great
-    time.sleep(1.6)
-    print()
+    print("{n}What's your name?".format(n=NEWLINE))
+    user.name = prompt.string('> ')
 
-    # Ask user name
-    print("What's your name?")
-    user.name = prompt.string('\n> ')
+    print('{n}Hey, {user}, choose game:'.format(n=NEWLINE, user=user.name))
 
-    time.sleep(1.6)
-    print('Hey, {user}, choose game:'.format(user=user.name))
-
-    time.sleep(1)
-    print()
-    print('\n'.join(GAMES) + '\n')
+    print('    '.join(GAMES), NEWLINE)
     game_index = prompt.integer('Enter number: ', 0)
     print()
 
-    time.sleep(1.8)
-    print('[START GAME]', MODULES[game_index].NAME)
+    create_title(MODULES[game_index].NAME)
 
-    engine.run(MODULES[game_index], player_name=user.name)
+    user.score = engine.run(MODULES[game_index], player_name=user.name)
 
 
 class GameShell(cmd.Cmd):
-    intro = 'Welcome to the Winsio.   Type help or ? to list commands.\n'
+    intro = 'Welcome to the OASIS.   Type help or ? to list commands.\n'
     prompt = '> '
 
-    # The default() method is called when none of the other do_*() command methods match.
     def default(self, line):
         print('I do not understand that command. Type help or ? to list commands.\n')
 
-    def do_start(self, line):
-        """start           -- Initializing the game engine"""
-        run()
+    @staticmethod
+    def do_start(line):
+        """start           -- start the game"""
+        main()
 
-    # A very simple "quit" command to terminate the program:
-    def do_quit(self, line):
-        return True  # this exits the Cmd application loop in TextAdventureCmd.cmdloop()
+    @staticmethod
+    def do_stats(line):
+        """stats           -- show statistics"""
+        create_title('STATS')
+        print(colored('Player:', attrs=['bold']), user.name)
+        print(colored('Score:', attrs=['bold']),
+              user.score,
+              NEWLINE
+              )
 
-    def help_combat(self):
-        print('Combat is not implemented in this program.')
+    @staticmethod
+    def do_quit(line):
+        """quit           -- finish the game"""
+        return True
 
-    def help_game(self):
-        print('Help for this game.')
+    @staticmethod
+    def help_game():
+        description = """
+        A set of five console games along the lines of popular mobile brain-pumping apps. 
+        Each game asks questions that need to be answered correctly.
+        After three correct answers, the game is considered completed.
+        Incorrect answers end the game and prompt you to play it again.
+        """
+        dedented_text = tw.dedent(description).strip()
+        print(NEWLINE, tw.fill(dedented_text, width=50), NEWLINE)
 
 
 if __name__ == '__main__':
-    # print('Text Adventure Demo!')
-    # print('====================')
+    try:
+        GameShell().cmdloop()
+    except Exception:
+        print('Oops, everything seems to have fallen')
 
-    GameShell().cmdloop()
     print('Thanks for playing!')

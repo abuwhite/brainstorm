@@ -29,16 +29,19 @@ def calculate_expression(first_num, second_num, operator):
 
 
 def generate_question():
-    """Генерируем первое, второе число и оператор.
+    """Generate first, second number and operator.
 
     Returns:
-        bool: Возращаем первое число, оператор и второе число.
+        tuple: Number, Operator, Number
 
     """
     first_num = random.randint(1, 10)
     second_num = random.randint(1, 10)
     operator = random.choice('+-*')
-    return first_num, operator, second_num
+    if first_num <= second_num:
+        return second_num, operator, first_num
+    else:
+        return first_num, operator, second_num
 
 
 # Генерируем вопрос и правильный ответ
@@ -46,7 +49,7 @@ def generate_round():
     """Генерируем раунд.
 
     Returns:
-        bool: Возращаем вопрос и правлиьный ответ на вопрос.
+        bool: Возвращаем вопрос и правильный ответ на вопрос.
 
     """
     first, op, second = generate_question()

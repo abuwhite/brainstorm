@@ -3,32 +3,40 @@
 """Game engine module."""
 
 import prompt
-from oasis.config import NUMBER_ROUNDS
+from oasis.config.config import NUMBER_ROUNDS
+from termcolor import colored, cprint
 
 
 def run(game, player_name):
     """Start engine game."""
-    print(game.RULES)
+    print(game.RULES, '\n')
 
-    round_count = 0  # Счётчик раундов
+    score = 0
+    round_count = 0  # Rounds counter
     while round_count < NUMBER_ROUNDS:
         question, correct = game.generate_round()
 
-        # Задаём вопрос игроку
+        # Ask player
         print('Question: {random}'.format(random=question))
 
-        # Получаем ответ игрока
+        # Receive player answer
         answer = prompt.string('Your answer: ')
 
-        # Если игрок даст не верный ответ завершаем игру и выводим сообщение
         if answer != correct:
             first = "'{a}' is wrong answer ;(.".format(a=answer)
             second = "Correct answer was '{b}'".format(b=correct)
-            print(first, second)
-            print("Let's try again, {user}!".format(user=player_name))
+            print(colored(first, 'red'), colored(second, 'green'))
+            print("Let's try again, {user}!\n".format(user=player_name))
             break
-        print('Correct!')  # Выводим сообщение
-        round_count += 1  # Увеличиваем счётчик
+
+        cprint('Correct!', 'green')
+        round_count += 1
+        score += 1
+
     else:
-        # Поздравляем игрока и завершаем игру
-        print('Congratulations, {user}!'.format(user=player_name))
+        cprint('Congratulations, {user}!\n'.format(user=player_name),
+               'magenta',
+               attrs=['bold']
+               )
+
+    return score
