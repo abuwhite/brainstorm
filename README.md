@@ -1,4 +1,4 @@
-# Brain Games
+# oasis
 
 [![Python CI](https://github.com/notabu/python-project-lvl1/actions/workflows/pyci.yml/badge.svg)](https://github.com/notabu/python-project-lvl1/actions/workflows/pyci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/2bb66c194e439ea25c08/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl1/maintainability) 
 
