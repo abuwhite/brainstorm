@@ -2,7 +2,7 @@
 
 
 class Player(object):
-    """Player data."""
+    """Player data: name and score."""
 
     def __init__(self, name=None, score=0):
         """Player name and score.

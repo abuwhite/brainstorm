@@ -16,7 +16,11 @@ user = Player()
 
 
 def create_title(data):
-    """Creat title."""
+    """Creat title.
+
+    Args:
+        data: Other string data.
+    """
     print('============= [{}] ============='.format(data))
 
 
@@ -42,16 +46,25 @@ class GameShell(cmd.Cmd):
     prompt = '> '
 
     def default(self, line):
+        """Default method."""
         print('I do not understand that command. Type help or ? to list commands.\n')
 
     @staticmethod
     def do_start(line):
-        """start           -- start the game"""
+        """Start           -- start the game
+
+        Args:
+            line: pass
+        """
         main()
 
     @staticmethod
     def do_stats(line):
-        """stats           -- show statistics"""
+        """stats           -- show statistics
+
+        Args:
+            line: pass
+        """
         create_title('STATS')
         print(colored('Player:', attrs=['bold']), user.name)
         print(colored('Score:', attrs=['bold']),
