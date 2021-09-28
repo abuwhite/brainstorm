@@ -20,12 +20,18 @@ def calculate_expression(first_num, second_num, operator):
         bool: Возращаем выражение, которые было образовано от оператора.
 
     """
-    if operator == '+':
-        return str(first_num + second_num)
-    if operator == '-':
-        return str(first_num - second_num)
-    if operator == '*':
-        return str(first_num * second_num)
+    # if operator == '+':
+    #     return str(first_num + second_num)
+    # if operator == '-':
+    #     return str(first_num - second_num)
+    # if operator == '*':
+    #     return str(first_num * second_num)
+
+    return {
+        '+': lambda: str(first_num + second_num),
+        '-': lambda: str(first_num - second_num),
+        '*': lambda: str(first_num * second_num),
+    }.get(operator, lambda: 'Not a valid operation')()
 
 
 def generate_question():

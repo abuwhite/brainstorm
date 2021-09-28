@@ -10,5 +10,11 @@ build:
 lint:
 	poetry run flake8 oasis
 
+test:
+	poetry run pytest oasis tests/
+
+test-cov:
+	poetry run pytest --cov=oasis tests/ --cov-report xml
+
 oasis:
 	poetry run oasis
