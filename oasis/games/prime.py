@@ -20,9 +20,7 @@ def is_prime(num):
     if num > 1:
         # check for factors
         for index in range(2, num):
-            if (num % index) == 0:
-                return "no"
-        return "yes"
+            return "no" if (num % index) == 0 else "yes"
     return "no"
 
 

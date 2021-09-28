@@ -1,3 +1,5 @@
+"""Cli module."""
+
 from oasis.scripts.cli import Player
 
 
