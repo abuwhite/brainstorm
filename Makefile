@@ -8,8 +8,8 @@
 POETRY_RELEASE := $$(sed -n -E "s/__version__ = '(.+)'/\1/p" oasis/__version__.py)
 
 install:
-	poetry install
-	make build
+	@poetry install
+	@poetry build
 	python3 -m pip install dist/*.whl --force-reinstall
 
 clean:
