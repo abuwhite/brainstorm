@@ -17,7 +17,7 @@ def run(game, player_name):
     Returns:
         int: Player score.
     """
-    print(game.RULES, '\n')
+    print(game.RULES, "\n")
 
     score = 0
     round_count = 0  # Rounds counter
@@ -25,27 +25,27 @@ def run(game, player_name):
         question, correct = game.generate_round()
 
         # Ask player
-        print('Question: {random}'.format(random=question))
+        print("Question: {random}".format(random=question))
 
         # Receive player answer
-        answer = prompt.string('Your answer: ')
+        answer = prompt.string("Your answer: ")
 
         if answer != correct:
             first = "'{a}' is wrong answer ;(.".format(a=answer)
             second = "Correct answer was '{b}'".format(b=correct)
-            print(colored(first, 'red'), colored(second, 'green'))
+            print(colored(first, "red"), colored(second, "green"))
             print("Let's try again, {user}!\n".format(user=player_name))
             break
 
-        cprint('Correct!', 'green')
+        cprint("Correct!", "green")
         round_count += 1
         score += 1
 
     else:
         cprint(
-            'Congratulations, {user}!\n'.format(user=player_name),
-            'magenta',
-            attrs=['bold'],
+            "Congratulations, {user}!\n".format(user=player_name),
+            "magenta",
+            attrs=["bold"],
         )
 
     return score

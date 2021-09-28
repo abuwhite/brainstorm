@@ -4,8 +4,8 @@
 
 import random
 
-NAME = 'Calc'
-RULES = 'What is the result of the expression?'
+NAME = "Calc"
+RULES = "What is the result of the expression?"
 
 
 def calculate_expression(first_num, second_num, operator):
@@ -17,21 +17,13 @@ def calculate_expression(first_num, second_num, operator):
         operator (str): Оператор.
 
     Returns:
-        bool: Возращаем выражение, которые было образовано от оператора.
-
+        str: Возвращаем выражение, которые было образовано от оператора.
     """
-    # if operator == '+':
-    #     return str(first_num + second_num)
-    # if operator == '-':
-    #     return str(first_num - second_num)
-    # if operator == '*':
-    #     return str(first_num * second_num)
-
     return {
-        '+': lambda: str(first_num + second_num),
-        '-': lambda: str(first_num - second_num),
-        '*': lambda: str(first_num * second_num),
-    }.get(operator, lambda: 'Not a valid operation')()
+        "+": lambda: str(first_num + second_num),
+        "-": lambda: str(first_num - second_num),
+        "*": lambda: str(first_num * second_num),
+    }.get(operator, lambda: "Not a valid operation")()
 
 
 def generate_question():
@@ -39,11 +31,10 @@ def generate_question():
 
     Returns:
         tuple: Number, Operator, Number
-
     """
     first_num = random.randint(1, 10)
     second_num = random.randint(1, 10)
-    operator = random.choice('+-*')
+    operator = random.choice("+-*")
     if first_num <= second_num:
         return second_num, operator, first_num
     return first_num, operator, second_num
@@ -54,10 +45,10 @@ def generate_round():
     """Генерируем раунд.
 
     Returns:
-        bool: Возвращаем вопрос и правильный ответ на вопрос.
+        tuple: Возвращаем вопрос и правильный ответ на вопрос.
 
     """
     first, op, second = generate_question()
-    question = '{num_1} {op} {num_2}'.format(num_1=first, num_2=second, op=op)
+    question = "{num_1} {op} {num_2}".format(num_1=first, num_2=second, op=op)
     answer = calculate_expression(first, second, op)
     return question, answer

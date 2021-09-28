@@ -4,11 +4,11 @@
 
 import random
 
-NAME = 'Even'
+NAME = "Even"
 RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def get_correct_result(num):
+def is_even(num):
     """Проверяем, является ли число простым или нет.
 
     Args:
@@ -17,7 +17,7 @@ def get_correct_result(num):
     Returns:
         bool: Если число простое, то возвращаем да, иначе нет.
     """
-    return 'yes' if (num % 2) == 0 else 'no'
+    return "yes" if (num % 2) == 0 else "no"
 
 
 def generate_number():
@@ -38,5 +38,5 @@ def generate_round():
         result: Правильный ответ на вопрос
     """
     question = generate_number()
-    answer = get_correct_result(question)
+    answer = is_even(question)
     return question, answer

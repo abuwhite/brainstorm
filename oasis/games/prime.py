@@ -4,45 +4,44 @@
 
 import random
 
-NAME = 'Prime'
+NAME = "Prime"
 RULES = '"yes" if given number is prime. Otherwise answer "no".'
 
 
-def get_correct_result(num):
-    """Проверяем, является ли число простым или нет.
+def is_prime(num):
+    """Check whether the number is prime or not.
 
     Args:
-        num (int): Случайное число от 1 до 10
+        num: Random number from 1 to 10
 
     Returns:
-        bool: Если число простое, то возвращаем да, иначе нет.
+        str: If the number is prime, then we return yes, otherwise no.
     """
     if num > 1:
         # check for factors
         for index in range(2, num):
             if (num % index) == 0:
-                return 'no'
-        return 'yes'
-    return 'no'
+                return "no"
+        return "yes"
+    return "no"
 
 
-def generate_number():
-    """Генерируем случайное число от 1 до 10.
+def generate_number() -> int:
+    """Generate a random number from 1 to 10.
 
     Returns:
-        int: Возвращаем случайное число.
+        int: Random number.
     """
     return random.randint(1, 10)
 
 
-def generate_round():
+def generate_round() -> tuple:
     """
-    Генерируем раунд.
+    Generate round.
 
     Returns:
-        question: Вопрос пользователю
-        result: Правильный ответ на вопрос
+        tuple: Question, Correct Answer
     """
     question = generate_number()
-    answer = get_correct_result(question)
+    answer = is_prime(question)
     return question, answer

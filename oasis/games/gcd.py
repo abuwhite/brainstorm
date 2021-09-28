@@ -4,8 +4,8 @@
 import math
 import random
 
-NAME = 'GCD'
-RULES = 'Find the greatest common divisor of given numbers.'
+NAME = "GCD"
+RULES = "Find the greatest common divisor of given numbers."
 
 
 def generate_question():
@@ -26,10 +26,10 @@ def generate_round():
     Генерируем раунд.
 
     Returns:
-        question: Вопрос пользователю
-        result: Правильный ответ на вопрос
+        str: question Вопрос пользователю
+        str: result Правильный ответ на вопрос
     """
     first_num, second_num = generate_question()
-    question = '{one} {two}'.format(one=first_num, two=second_num)
+    question = "{one} {two}".format(one=first_num, two=second_num)
     answer = str(math.gcd(first_num, second_num))
     return question, answer

@@ -3,8 +3,8 @@
 """Module with the logic of the game gcd."""
 import random
 
-NAME = 'Progression'
-RULES = 'What number is missing in the progression?'
+NAME = "Progression"
+RULES = "What number is missing in the progression?"
 
 # Длина прогрессии
 PROGRESSION_LENGTH = 10
@@ -35,7 +35,7 @@ def generate_numbers():
 
     for number in progression:
         if number == random_numbers:
-            total_num.append(str('..'))
+            total_num.append(str(".."))
             continue
         total_num.append(str(number))
     return total_num, random_numbers
@@ -50,6 +50,6 @@ def generate_round():
         result: Правильный ответ на вопрос
     """
     total_num, random_num = generate_numbers()
-    question = ' '.join(total_num)
+    question = " ".join(total_num)
     answer = str(random_num)
     return question, answer

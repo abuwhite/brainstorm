@@ -15,25 +15,24 @@ from termcolor import colored
 user = Player()
 
 
-def create_title(data):
-    """Creat title.
+def create_title(self):
+    """Create title.
 
     Args:
-        data: Other string data.
+        self: Other string data.
     """
-    print('============= [{}] ============='.format(data))
+    print("============= [{title}] =============".format(title=self))
 
 
 def main():
     """Greets the player, shows the rules and starts the game."""
-
     print("{n}What's your name?".format(n=NEWLINE))
-    user.name = prompt.string('> ')
+    user.name = prompt.string("> ")
 
-    print('{n}Hey, {user}, choose game:'.format(n=NEWLINE, user=user.name))
+    print("{n}Hey, {user}, choose game:".format(n=NEWLINE, user=user.name))
 
-    print('    '.join(GAMES), NEWLINE)
-    game_index = prompt.integer('Enter number: ', 0)
+    print("    ".join(GAMES), NEWLINE)
+    game_index = prompt.integer("Enter number: ", 0)
     print()
 
     create_title(MODULES[game_index].NAME)
@@ -41,17 +40,38 @@ def main():
     user.score = engine.run(MODULES[game_index], player_name=user.name)
 
 
+def do_stats() -> None:
+    """Stats           -- show statistics.
+
+    Args:
+        line: pass
+    """
+    create_title("STATS")
+    print(colored("Player:", attrs=["bold"]), user.name)
+    print(
+        colored("Score:", attrs=["bold"]),
+        user.score,
+        NEWLINE,
+    )
+
+
 class GameShell(cmd.Cmd):
-    intro = 'Welcome to the OASIS.   Type help or ? to list commands.\n'
-    prompt = '> '
+    """Main game logic."""
+
+    intro = "Welcome to the OASIS.   Type help or ? to list commands.\n"
+    prompt = "> "
 
     def default(self, line):
-        """Default method."""
-        print('I do not understand that command. Type help or ? to list commands.\n')
+        """Get default method.
+
+        Args:
+            line: Default line.
+        """
+        print("I do not understand that command. Type help or ? to list commands.\n")
 
     @staticmethod
     def do_start(line):
-        """Start           -- start the game
+        """Start           -- start the game.
 
         Args:
             line: pass
@@ -59,45 +79,38 @@ class GameShell(cmd.Cmd):
         main()
 
     @staticmethod
-    def do_stats(line):
-        """stats           -- show statistics
+    def do_quit(line):
+        """Quit           -- finish the game.
 
         Args:
-            line: pass
-        """
-        create_title('STATS')
-        print(colored('Player:', attrs=['bold']), user.name)
-        print(colored('Score:', attrs=['bold']),
-              user.score,
-              NEWLINE,
-              )
+            line: Pass
 
-    @staticmethod
-    def do_quit(line):
-        """quit           -- finish the game"""
+        Returns:
+            bool: Bool true.
+        """
         return True
 
-    @staticmethod
-    def help_game():
-        description = """
-        A set of five console games along the lines of popular 
-        mobile brain-pumping apps. Each game asks questions that need 
-        to be answered correctly. After three correct answers, the game 
-        is considered completed. Incorrect answers end the game and 
-        prompt you to play it again.
-        """
-        dedented_text = tw.dedent(description).strip()
-        print(
-            NEWLINE,
-            tw.fill(dedented_text, width=TEXT_WIDTH),
-            NEWLINE,
-        )
+    # @staticmethod
+    # def help_game():
+    #     description = """
+    #     A set of five console games along the lines of popular
+    #     mobile brain-pumping apps. Each game asks questions that need
+    #     to be answered correctly. After three correct answers, the game
+    #     is considered completed. Incorrect answers end the game and
+    #     prompt you to play it again.
+    #     """
+    #     dedented_text = tw.dedent(description).strip()
+    #     print(
+    #         NEWLINE,
+    #         tw.fill(dedented_text, width=TEXT_WIDTH),
+    #         NEWLINE,
+    #     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         GameShell().cmdloop()
     except Exception:
-        print('Oops, everything seems to have fallen')
+        print("Oops, everything seems to have fallen")
 
-    print('Thanks for playing!')
+    print("Thanks for playing!")
