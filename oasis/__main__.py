@@ -3,11 +3,10 @@
 """Main module."""
 
 import cmd
-import textwrap as tw
 
 import prompt
 from oasis.config.config import GAMES, MODULES
-from oasis.config.constants import NEWLINE, TEXT_WIDTH
+from oasis.config.constants import NEWLINE
 from oasis.scripts import engine
 from oasis.scripts.cli import Player
 from termcolor import colored
@@ -40,21 +39,6 @@ def main():
     user.score = engine.run(MODULES[game_index], player_name=user.name)
 
 
-def do_stats() -> None:
-    """Stats           -- show statistics.
-
-    Args:
-        line: pass
-    """
-    create_title("STATS")
-    print(colored("Player:", attrs=["bold"]), user.name)
-    print(
-        colored("Score:", attrs=["bold"]),
-        user.score,
-        NEWLINE,
-    )
-
-
 class GameShell(cmd.Cmd):
     """Main game logic."""
 
@@ -67,7 +51,8 @@ class GameShell(cmd.Cmd):
         Args:
             line: Default line.
         """
-        print("I do not understand that command. Type help or ? to list commands.\n")
+        print("I do not understand that command.")
+        print("Type help or ? to list commands.\n")
 
     @staticmethod
     def do_start(line):
@@ -77,6 +62,21 @@ class GameShell(cmd.Cmd):
             line: pass
         """
         main()
+
+    @staticmethod
+    def do_stats(line):
+        """Stats           -- show statistics.
+
+        Args:
+            line: pass
+        """
+        create_title("STATS")
+        print(colored("Player:", attrs=["bold"]), user.name)
+        print(
+            colored("Score:", attrs=["bold"]),
+            user.score,
+            NEWLINE,
+        )
 
     @staticmethod
     def do_quit(line):
@@ -89,22 +89,6 @@ class GameShell(cmd.Cmd):
             bool: Bool true.
         """
         return True
-
-    # @staticmethod
-    # def help_game():
-    #     description = """
-    #     A set of five console games along the lines of popular
-    #     mobile brain-pumping apps. Each game asks questions that need
-    #     to be answered correctly. After three correct answers, the game
-    #     is considered completed. Incorrect answers end the game and
-    #     prompt you to play it again.
-    #     """
-    #     dedented_text = tw.dedent(description).strip()
-    #     print(
-    #         NEWLINE,
-    #         tw.fill(dedented_text, width=TEXT_WIDTH),
-    #         NEWLINE,
-    #     )
 
 
 if __name__ == "__main__":
