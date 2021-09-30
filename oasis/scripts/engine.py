@@ -8,8 +8,14 @@ from termcolor import colored, cprint
 
 
 def player_ready():
+    """Check player ready.
+
+    Returns:
+        bool: True if Player ready else False
+    """
     answer = prompt.string("Are you ready? (y/n): ")
-    return True if answer == 'y' else False
+    if answer == 'y':
+        return True
 
 
 def run(game, player_name):
