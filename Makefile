@@ -5,7 +5,7 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2021 Boris Zhenikhov
 
-POETRY_RELEASE := $$(sed -n -E "s/__version__ = '(.+)'/\1/p" oasis/__version__.py)
+OASIS_RELEASE := $$(sed -n -E "s/__version__ = '(.+)'/\1/p" oasis/__version__.py)
 
 install:
 	@poetry install
@@ -22,6 +22,9 @@ clean:
 
 format: clean
 	@poetry run black oasis/ tests/
+
+dipencies:
+	@poetry export -f requirements.txt --output requirements.txt
 
 test:
 	make lint

@@ -6,6 +6,16 @@ import prompt
 from oasis.config.config import NUMBER_ROUNDS
 from termcolor import colored, cprint
 
+"""
+* Confirm question example
+* run example by typing `python example/confirm.py` in your console
+"""
+from pprint import pprint
+
+from PyInquirer import prompt as pyprompt
+
+from examples import custom_style_1
+
 
 def player_ready():
     """Check player ready.
@@ -13,17 +23,44 @@ def player_ready():
     Returns:
         bool: True if Player ready else False
     """
-    answer = prompt.string("Are you ready? (y/n): ")
-    if answer == 'y':
-        return True
+    questions = [
+        {
+            'type': 'confirm',
+            'message': 'Do you want to continue?',
+            'name': 'continue',
+            'default': True,
+        },
+        {
+            'type': 'confirm',
+            'message': 'Do you want to exit?',
+            'name': 'exit',
+            'default': False,
+        },
+    ]
+    answers = pyprompt(questions, style=custom_style_1)
+    pprint(answers)
+    # if answer == 'y':
+    #     return True
 
 
-def run(game, player_name):
+# def player_ready():
+#     """Check player ready.
+#
+#     Returns:
+#         bool: True if Player ready else False
+#     """
+#     answer = prompt.string("Are you ready? (y/n): ")
+#     if answer == 'y':
+#         return True
+
+
+def run(game, player_name, user):
     """Start engine game.
 
     Args:
         game: Game module.
         player_name: Player's name.
+        user: Player user class.
 
     Returns:
         int: Player score.
@@ -32,7 +69,6 @@ def run(game, player_name):
 
     ready = player_ready()
     if ready:
-        score = 0
         round_count = 0  # Rounds counter
         while round_count < NUMBER_ROUNDS:
             question, correct = game.generate_round()
@@ -52,7 +88,7 @@ def run(game, player_name):
 
             cprint("Correct!", "green")
             round_count += 1
-            score += 1
+            user.score += 1
 
         else:
             cprint(
@@ -60,5 +96,5 @@ def run(game, player_name):
                 "magenta",
                 attrs=["bold"],
             )
-
-        return score
+        return True
+    return False
