@@ -43,17 +43,6 @@ def player_ready():
     #     return True
 
 
-# def player_ready():
-#     """Check player ready.
-#
-#     Returns:
-#         bool: True if Player ready else False
-#     """
-#     answer = prompt.string("Are you ready? (y/n): ")
-#     if answer == 'y':
-#         return True
-
-
 def run(game, player_name, user):
     """Start engine game.
 
