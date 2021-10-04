@@ -25,6 +25,7 @@ class GameShell(cmd.Cmd):
         Returns:
             object: Menu function.
         """
+        print(self)
         if self.prompt:
             return self.do_menu(self)
 
@@ -67,21 +68,21 @@ class GameShell(cmd.Cmd):
             return self.do_exit(self)
 
     @staticmethod
-    def do_stats(line):
+    def do_stats(line=None):
         """Stats           -- show statistics.
 
         Args:
             line: pass
         """
-        print(colored("  Player:", attrs=["bold"]), user.name)
+        print("  Player:", user.name)
         print(
-            colored("  Score :", attrs=["bold"]),
+            "  Score :",
             user.score,
             NEWLINE,
         )
 
     @staticmethod
-    def do_exit(line):
+    def do_exit(line=None):
         """Exit           -- finish the game.
 
         Args:
