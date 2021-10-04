@@ -19,6 +19,7 @@ termcolor = "^1.1.0"
 pytest = "^6.2.5"
 pytest-cov = "^2.12.1"
 pytest-sugar = "^0.9.4"
+PyInquirer = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
 wemake-python-styleguide = "^0.15.2"
