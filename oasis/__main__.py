@@ -1,97 +1,32 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
-from __future__ import print_function, unicode_literals
 
 import cmd
 
-import prompt as pmt
-from oasis.config.config import MODULES, ASK_NAME, LIST_GAMES, MENU
-from oasis.config.constants import NEWLINE
+from oasis.config import MODULES, NEWLINE
 from oasis.scripts import engine
-from oasis.scripts.cli import Player
+from oasis.scripts.cli import user
+from oasis.utils import game, player
+from oasis.utils.menu import get_menu
 from termcolor import colored
-
-from PyInquirer import prompt
-from pprint import pprint
-from examples import custom_style_1, custom_style_2, custom_style_3
-
-user = Player()
-
-
-def get_user_name(params):
-    """Ask for the player's name.
-
-    Set name at user.name
-    """
-    name = prompt(params, style=custom_style_2)
-    user.name = name.get('player')
-
-
-def get_game(list_games):
-    game = prompt(list_games, style=custom_style_3)
-    return game.get('game')
-
-
-def create_title(self):
-    """Create title.
-
-    Args:
-        self: Other string data.
-    """
-    print("============= [{title}] =============".format(title=self))
-
-
-class MainMenu:
-    def __init__(self, answer):
-        self._play = None
-        self._help = None
-        self._exit = None
-
-        item = answer.get('menu')
-        if item == 'play':
-            self._play = True
-        elif item == 'help':
-            self._help = True
-        elif item == 'exit':
-            self._exit = True
-
-    @property
-    def play(self):
-        return self._play
-
-    @play.setter
-    def play(self, value=True):
-        self._play = value
-
-    @property
-    def help(self):
-        return self._help
-
-    @help.setter
-    def help(self, value=True):
-        self._help = value
-
-    @property
-    def exit(self):
-        return self._exit
-
-    @exit.setter
-    def exit(self, value=True):
-        self._exit = value
 
 
 class GameShell(cmd.Cmd):
-    """Main game logic."""
+    """Game Shell."""
 
-    intro = "Press [ENTER] when ready.\n"
-    # intro = "Type help or ? to list commands.\n"
+    intro = colored("Press [ENTER] to start", attrs=["reverse"])
+
+    prompt = "> "
 
     def emptyline(self):
-        if self.prompt:
-            return self.do_start(self)
+        """Start the engine after pressing the ENTER button.
 
-    prompt = '> '
+        Returns:
+            object: Menu function.
+        """
+        if self.prompt:
+            return self.do_menu(self)
 
     def default(self, line):
         """Get default method.
@@ -103,41 +38,33 @@ class GameShell(cmd.Cmd):
         print("Type help or ? to list commands.\n")
 
     @staticmethod
-    def do_start(self):
-        answer = prompt(MENU, style=custom_style_1)
-        menu = MainMenu(answer)
+    def do_menu(self):
+        """Get menu.
+
+        Args:
+            self: Object
+
+        Returns:
+            object: Stats or Exit
+        """
+        menu = get_menu()
 
         if menu.play:
-            game = get_game(LIST_GAMES)
-            # create_title(MODULES[game].NAME)
-
-            def player_ready():
-                """Check player ready.
-
-                Returns:
-                    bool: True if Player ready else False
-                """
-                questions = [
-                    {
-                        'type': 'confirm',
-                        'message': 'Do you want to continue?',
-                        'name': 'continue',
-                        'default': True,
-                    },
-                ]
-                ready = prompt(questions, style=custom_style_1)
-                if ready.get('continue'):
-                    return True
-            ready = player_ready()
+            ready = player.is_ready()
             if not ready:
-                return self.do_start(self)
+                return self.do_menu(self)
 
-            engine.run(MODULES[game], player_name=user.name, user=user)
+            user.name = player.get_name()
+            engine.run(
+                MODULES[game.get_game()],
+                user=user,
+            )
 
-        elif menu.help:
-            pass
+        elif menu.stats:
+            return self.do_stats(self)
+
         elif menu.exit:
-            return True
+            return self.do_exit(self)
 
     @staticmethod
     def do_stats(line):
@@ -146,17 +73,16 @@ class GameShell(cmd.Cmd):
         Args:
             line: pass
         """
-        create_title("STATS")
-        print(colored("Player:", attrs=["bold"]), user.name)
+        print(colored("  Player:", attrs=["bold"]), user.name)
         print(
-            colored("Score:", attrs=["bold"]),
+            colored("  Score :", attrs=["bold"]),
             user.score,
             NEWLINE,
         )
 
     @staticmethod
-    def do_quit(line):
-        """Quit           -- finish the game.
+    def do_exit(line):
+        """Exit           -- finish the game.
 
         Args:
             line: Pass
@@ -168,14 +94,11 @@ class GameShell(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    print('Welcome to the OASIS!', '\n')
+    print("Welcome to the OASIS!", "\n")
 
-    # get_user_name(ASK_NAME)
+    try:
+        GameShell().cmdloop()
+    except Exception:
+        print("Oops, everything seems to have fallen")
 
-    GameShell().cmdloop()
-    # try:
-    #     GameShell().cmdloop()
-    # except Exception:
-    #     print("Oops, everything seems to have fallen")
-
-    print("Thanks for playing!")
+    print("Thanks for Playing!")

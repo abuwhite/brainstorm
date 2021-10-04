@@ -1,10 +1,10 @@
 """Cli module."""
 
-from oasis.scripts.cli import Player
+from oasis.scripts.cli import User
 
 
 def test_init_player():
-    user = Player()
+    user = User()
     name = user.name
     score = user.score
 
@@ -13,12 +13,12 @@ def test_init_player():
 
 
 def test_new_score_player():
-    user = Player()
+    user = User()
     user.score = 10
     assert user.score == 10
 
 
 def test_new_player():
-    user = Player("Mark", 5)
+    user = User("Mark", 5)
     user.name = "Anna"
     assert user.score == 0

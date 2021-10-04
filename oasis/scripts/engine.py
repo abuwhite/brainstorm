@@ -1,89 +1,85 @@
 # -*- coding: utf-8 -*-
 
 """Game engine module."""
-
-import prompt
-from oasis.config.config import NUMBER_ROUNDS
+from oasis.config import BOLD, NUMBER_ROUNDS
+from oasis.utils.colors import style2
+from oasis.utils.game import print_title
+from PyInquirer import prompt
 from termcolor import colored, cprint
 
-"""
-* Confirm question example
-* run example by typing `python example/confirm.py` in your console
-"""
-from pprint import pprint
 
-from PyInquirer import prompt as pyprompt
+def get_answer(text):
+    """Get player answer.
 
-from examples import custom_style_1
-
-
-def player_ready():
-    """Check player ready.
+    Args:
+        text: Question
 
     Returns:
-        bool: True if Player ready else False
+        str: Player answer
     """
-    questions = [
+    question = [
         {
-            'type': 'confirm',
-            'message': 'Do you want to continue?',
-            'name': 'continue',
-            'default': True,
-        },
-        {
-            'type': 'confirm',
-            'message': 'Do you want to exit?',
-            'name': 'exit',
-            'default': False,
+            "type": "input",
+            "name": "answer",
+            "message": "Question: {ask}".format(ask=text),
         },
     ]
-    answers = pyprompt(questions, style=custom_style_1)
-    pprint(answers)
-    # if answer == 'y':
-    #     return True
+
+    return prompt(question, style=style2).get("answer")
 
 
-def run(game, player_name, user):
+def run(game, user):
     """Start engine game.
 
     Args:
         game: Game module.
-        player_name: Player's name.
         user: Player user class.
 
-    Returns:
-        int: Player score.
+    The game lasts up to 3 rounds.
+    Each round adds 1 point to the player.
     """
-    print(game.RULES, "\n")
+    print_title(game.RULES)
 
-    ready = player_ready()
-    if ready:
-        round_count = 0  # Rounds counter
-        while round_count < NUMBER_ROUNDS:
-            question, correct = game.generate_round()
+    round_count = 0  # Rounds counter
+    while round_count < NUMBER_ROUNDS:
+        question, correct = game.generate_round()
+        answer = get_answer(question)
 
-            # Ask player
-            print("Question: {random}".format(random=question))
-
-            # Receive player answer
-            answer = prompt.string("Your answer: ")
-
-            if answer != correct:
-                first = "'{a}' is wrong answer ;(.".format(a=answer)
-                second = "Correct answer was '{b}'".format(b=correct)
-                print(colored(first, "red"), colored(second, "green"))
-                print("Let's try again, {user}!\n".format(user=player_name))
-                break
-
+        if answer == correct:
             cprint("Correct!", "green")
             round_count += 1
             user.score += 1
+            continue
 
-        else:
-            cprint(
-                "Congratulations, {user}!\n".format(user=player_name),
-                "magenta",
-                attrs=["bold"],
-            )
-        return True
-    return False
+        print(
+            colored(
+                "{a}".format(a=answer),
+                color="red",
+                attrs=[BOLD],
+            ),
+            "is wrong answer.",
+        )
+
+        print(
+            "Correct answer was",
+            colored(
+                "{b}".format(b=correct),
+                color="green",
+                attrs=[BOLD],
+            ),
+        )
+
+        cprint(
+            "Let's try again, {name}!\n".format(name=user.name),
+            color="yellow",
+            attrs=[BOLD],
+        )
+
+        break
+
+    else:
+        cprint(
+            "Congratulations, {name}!\n".format(name=user.name),
+            color="magenta",
+            attrs=[BOLD],
+        )

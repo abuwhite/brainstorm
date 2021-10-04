@@ -1,8 +1,8 @@
-"""Player module."""
+"""Cli module."""
 
 
-class Player(object):
-    """Player data: name and score."""
+class User(object):
+    """Users data: name and score."""
 
     def __init__(self, name=None, score=0):
         """Player name and score.
@@ -43,3 +43,6 @@ class Player(object):
     @score.setter
     def score(self, new_score):
         self._score += new_score
+
+
+user = User()

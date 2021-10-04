@@ -40,13 +40,11 @@ def generate_question():
     return first_num, operator, second_num
 
 
-# Генерируем вопрос и правильный ответ
 def generate_round():
-    """Генерируем раунд.
+    """Generate round.
 
     Returns:
-        tuple: Возвращаем вопрос и правильный ответ на вопрос.
-
+        tuple: Question and correct answer.
     """
     first, op, second = generate_question()
     question = "{num_1} {op} {num_2}".format(num_1=first, num_2=second, op=op)
