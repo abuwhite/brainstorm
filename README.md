@@ -10,9 +10,9 @@ A set of five console games along the lines of popular mobile brain-pumping apps
 
 Clone the repo and install packages
 ```sh
-git clone https://github.com/znhv/brain-games.git
+git clone https://github.com/znhv/oasis.git
 
-cd brain-games
+cd oasis
    
 make install
 ```

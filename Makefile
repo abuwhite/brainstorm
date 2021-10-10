@@ -23,7 +23,7 @@ clean:
 format: clean
 	@poetry run black oasis/ tests/
 
-dipencies:
+export:
 	@poetry export -f requirements.txt --output requirements.txt
 
 test:
