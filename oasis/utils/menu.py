@@ -1,6 +1,6 @@
 """Menu module."""
 
-from oasis.utils.colors import style1
+from oasis.utils.colors import menu as menu_color
 from PyInquirer import prompt
 
 
@@ -73,6 +73,6 @@ def get_menu():
     return MainMenu(
         prompt(
             menu,
-            style=style1,
+            style=menu_color,
         ),
     )

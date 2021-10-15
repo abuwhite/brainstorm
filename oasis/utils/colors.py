@@ -12,6 +12,16 @@ style1 = style_from_dict({
     Token.Question: '',
 })
 
+menu = style_from_dict({
+    Token.Separator: '',
+    Token.QuestionMark: '#d04000',
+    Token.Selected: 'bold',
+    Token.Pointer: '#0071e3',
+    Token.Instruction: '',
+    Token.Answer: '#06c',
+    Token.Question: '',
+})
+
 
 style2 = style_from_dict({
     Token.Separator: '#6C6C6C',

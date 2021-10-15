@@ -3,6 +3,7 @@
 """Main module."""
 
 import cmd
+from pony.orm import *
 
 from oasis.config import MODULES, NEWLINE
 from oasis.scripts import engine
@@ -10,6 +11,8 @@ from oasis.scripts.cli import user
 from oasis.utils import game, player
 from oasis.utils.menu import get_menu
 from termcolor import colored
+
+from oasis.db.models import Players
 
 
 class GameShell(cmd.Cmd):
@@ -25,7 +28,6 @@ class GameShell(cmd.Cmd):
         Returns:
             object: Menu function.
         """
-        print(self)
         if self.prompt:
             return self.do_menu(self)
 
@@ -74,12 +76,18 @@ class GameShell(cmd.Cmd):
         Args:
             line: pass
         """
-        print("  Player:", user.name)
-        print(
-            "  Score :",
-            user.score,
-            NEWLINE,
-        )
+
+        @db_session
+        def show_data():
+            persons = select(p for p in Players)
+            persons.show()
+        show_data()
+        # print("  Player:", user.name)
+        # print(
+        #     "  Score :",
+        #     user.score,
+        #     NEWLINE,
+        # )
 
     @staticmethod
     def do_exit(line=None):

@@ -1,5 +1,7 @@
 """Cli module."""
 
+from oasis.db.schema import add_data
+
 
 class User(object):
     """Users data: name and score."""
@@ -30,6 +32,7 @@ class User(object):
         else:
             self._name = new_name
             self._score = 0
+            add_data(new_name, 0)
 
     @property
     def score(self):
@@ -42,7 +45,7 @@ class User(object):
 
     @score.setter
     def score(self, new_score):
-        self._score += new_score
+        add_data(self._name, new_score)
 
 
 user = User()
