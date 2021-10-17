@@ -1,7 +1,7 @@
 from datetime import datetime
 from pony.orm import *
 
-from oasis.config import db_params
+from brainstorm.config import db_params
 
 db = Database()
 

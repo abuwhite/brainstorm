@@ -1,4 +1,4 @@
-from oasis.games import gcd
+from brainstorm.games import gcd
 
 
 def test_generate_question():

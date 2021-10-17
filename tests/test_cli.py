@@ -1,6 +1,6 @@
 """Cli module."""
 
-from oasis.scripts.cli import User
+from brainstorm.scripts.cli import User
 
 
 def test_init_player():

@@ -1,7 +1,7 @@
 from datetime import datetime
 from pony.orm import *
 
-from oasis.db.models import Players
+from brainstorm.db.models import Players
 
 
 @db_session

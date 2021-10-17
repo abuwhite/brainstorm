@@ -1,4 +1,4 @@
-from oasis.games import calc
+from brainstorm.games import calc
 
 
 def test_calculate_expression():

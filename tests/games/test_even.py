@@ -1,4 +1,4 @@
-from oasis.games import even
+from brainstorm.games import even
 
 
 def test_is_even():

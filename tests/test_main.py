@@ -1,5 +1,5 @@
-from oasis.__main__ import GameShell
-from oasis.utils.menu import MainMenu
+from brainstorm.__main__ import GameShell
+from brainstorm.utils.menu import MainMenu
 
 
 def test_stats(capsys):

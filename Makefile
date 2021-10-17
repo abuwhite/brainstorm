@@ -21,7 +21,7 @@ clean:
 	@find . -type f -name "*.py[co]" -exec rm -rf {} +
 
 format: clean
-	@poetry run black oasis/ tests/
+	@poetry run black brainstorm/ tests/
 
 export:
 	@poetry export -f requirements.txt --output requirements.txt
@@ -32,19 +32,19 @@ test:
 	make pytest-cov
 
 lint:
-	poetry run flake8 oasis
+	poetry run flake8 brainstorm
 
 pytest:
-	poetry run pytest oasis tests/
+	poetry run pytest brainstorm tests/
 
 cov-check:
-	poetry run pytest --cov=oasis tests/
+	poetry run pytest --cov=brainstorm tests/
 
 pytest-cov:
-	@poetry run pytest --cov=oasis --cov-config .coveragerc tests/ -sq --cov-report xml
+	@poetry run pytest --cov=brainstorm --cov-config .coveragerc tests/ -sq --cov-report xml
 
 build: test
 	@poetry build
 
-oasis:
-	poetry run oasis
+brainstorm:
+	poetry run brainstorm

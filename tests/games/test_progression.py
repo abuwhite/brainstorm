@@ -1,4 +1,4 @@
-from oasis.games import progression
+from brainstorm.games import progression
 
 
 def test_generate_numbers():

@@ -1,6 +1,6 @@
 """Player module."""
 
-from oasis.utils.colors import style1, style3
+from brainstorm.utils.colors import style1, style3
 from PyInquirer import prompt
 
 

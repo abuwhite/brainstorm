@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """Game engine module."""
-from oasis.config import BOLD, NUMBER_ROUNDS
-from oasis.utils.colors import style2
-from oasis.utils.game import print_title
+from brainstorm.config import BOLD, NUMBER_ROUNDS
+from brainstorm.utils.colors import style2
+from brainstorm.utils.game import print_title
 from PyInquirer import prompt
 from termcolor import colored, cprint
 

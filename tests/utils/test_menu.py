@@ -1,4 +1,4 @@
-from oasis.utils.menu import MainMenu, get_menu
+from brainstorm.utils.menu import MainMenu, get_menu
 
 
 def test_main_menu():

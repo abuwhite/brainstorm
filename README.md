@@ -12,7 +12,7 @@ Clone the repo and install packages
 ```sh
 git clone https://github.com/znhv/oasis.git
 
-cd oasis
+cd brainstorm
    
 make install
 ```

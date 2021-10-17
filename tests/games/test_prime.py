@@ -1,4 +1,4 @@
-from oasis.games import prime
+from brainstorm.games import prime
 
 
 def test_is_prime():

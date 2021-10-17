@@ -1,6 +1,6 @@
 """Cli module."""
 
-from oasis.db.schema import add_data
+from brainstorm.db.schema import add_data
 
 
 class User(object):

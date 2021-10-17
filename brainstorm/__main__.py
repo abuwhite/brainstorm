@@ -5,14 +5,14 @@
 import cmd
 from pony.orm import *
 
-from oasis.config import MODULES, NEWLINE
-from oasis.scripts import engine
-from oasis.scripts.cli import user
-from oasis.utils import game, player
-from oasis.utils.menu import get_menu
+from brainstorm.config import MODULES, NEWLINE
+from brainstorm.scripts import engine
+from brainstorm.scripts.cli import user
+from brainstorm.utils import game, player
+from brainstorm.utils.menu import get_menu
 from termcolor import colored
 
-from oasis.db.models import Players
+from brainstorm.db.models import Players
 
 
 class GameShell(cmd.Cmd):

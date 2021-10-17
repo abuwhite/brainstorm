@@ -1,8 +1,8 @@
 import unittest.mock as mock
 import pytest
 
-from oasis.scripts import engine
-from oasis.games import calc
+from brainstorm.scripts import engine
+from brainstorm.games import calc
 
 
 # def test_player_ready(monkeypatch):

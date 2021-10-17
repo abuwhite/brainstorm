@@ -1,6 +1,6 @@
 """Game module."""
 
-from oasis.utils.colors import style3
+from brainstorm.utils.colors import style3
 from PyInquirer import prompt
 from termcolor import cprint
 

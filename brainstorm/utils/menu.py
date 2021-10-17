@@ -1,6 +1,6 @@
 """Menu module."""
 
-from oasis.utils.colors import menu as menu_color
+from brainstorm.utils.colors import menu as menu_color
 from PyInquirer import prompt
 
 

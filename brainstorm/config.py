@@ -2,7 +2,7 @@
 
 import types
 
-from oasis.games import calc, even, gcd, prime, progression
+from brainstorm.games import calc, even, gcd, prime, progression
 
 NUMBER_ROUNDS = 3  # The number of rounds in the game.
 
