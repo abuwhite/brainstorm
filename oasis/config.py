@@ -19,3 +19,5 @@ MODULES = types.MappingProxyType(
         "progression": progression,
     },
 )
+
+db_params = dict(provider='sqlite', filename='stats', create_db=True)

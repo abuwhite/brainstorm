@@ -1,6 +1,7 @@
 from oasis.__main__ import GameShell
 from oasis.utils.menu import MainMenu
 
+
 def test_stats(capsys):
     text = """  Player: None
   Score : 0 
