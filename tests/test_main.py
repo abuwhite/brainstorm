@@ -1,4 +1,4 @@
-from brainstorm.__main__ import GameShell
+from brainstorm.__main__ import main, get_stats, get_out
 from brainstorm.utils.menu import MainMenu
 
 
@@ -8,21 +8,12 @@ def test_stats(capsys):
 
 """
 
-    GameShell.do_stats()
+    get_stats()
     captured = capsys.readouterr()
     assert captured.out == text
 
 
 def test_exit():
-    actual = GameShell.do_exit()
+    actual = get_out()
     assert actual is True
 
-
-def test_default(capsys):
-    text = """I do not understand that command.
-Type help or ? to list commands.
-
-"""
-    GameShell.default(..., ...)
-    captured = capsys.readouterr()
-    assert captured.out == text

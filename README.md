@@ -1,4 +1,4 @@
-# oasis
+# brainstorm
 
 [![build](https://github.com/znhv/oasis/actions/workflows/build.yml/badge.svg)](https://github.com/znhv/oasis/actions/workflows/build.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/2bb66c194e439ea25c08/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl1/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/2bb66c194e439ea25c08/test_coverage)](https://codeclimate.com/github/notabu/python-project-lvl1/test_coverage) 
 

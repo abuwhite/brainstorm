@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "oasis"
+name = "brainstorm"
 version = "0.1.8"
 description = "A set of five console games built on the principle of popular mobile applications for brain pumping."
 authors = ["Boris Zhenikhov <znhv@yandex.com>"]
@@ -9,7 +9,7 @@ license = "MIT"
 readme = "README.md"
 
 packages = [
-  { include = "oasis" },
+  { include = "brainstorm" },
 ]
 
 [tool.poetry.dependencies]
@@ -30,4 +30,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-oasis = "oasis.__main__:run"
+brainstorm = "brainstorm.__main__:run"

@@ -14,12 +14,12 @@ style1 = style_from_dict({
 
 menu = style_from_dict({
     Token.Separator: '',
-    Token.QuestionMark: '#d04000',
-    Token.Selected: 'bold',
-    Token.Pointer: '#0071e3',
+    Token.QuestionMark: '#198754',
+    Token.Selected: '#06c',
+    Token.Pointer: '#06c',
     Token.Instruction: '',
     Token.Answer: '#06c',
-    Token.Question: '',
+    Token.Question: 'bold',
 })
 
 

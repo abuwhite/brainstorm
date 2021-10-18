@@ -2,7 +2,7 @@
 
 """Game engine module."""
 from brainstorm.config import BOLD, NUMBER_ROUNDS
-from brainstorm.utils.colors import style2
+from brainstorm.utils.colors import menu
 from brainstorm.utils.game import print_title
 from PyInquirer import prompt
 from termcolor import colored, cprint
@@ -21,11 +21,11 @@ def get_answer(text):
         {
             "type": "input",
             "name": "answer",
-            "message": "Question: {ask}".format(ask=text),
+            "message": "{ask} =".format(ask=text),
         },
     ]
 
-    return prompt(question, style=style2).get("answer")
+    return prompt(question, style=menu).get("answer")
 
 
 def run(game, user):
@@ -46,36 +46,44 @@ def run(game, user):
         answer = get_answer(question)
 
         if answer == correct:
-            cprint("Correct!", "green")
+            # cprint("Correct!", "green")
+            print(
+                colored(
+                    "+1",
+                    color="green",
+                    attrs=[BOLD],
+                ),
+                "point",
+            )
             round_count += 1
             user.score += 1
             continue
 
         print(
             colored(
-                "{a}".format(a=answer),
+                "Wrong!",
                 color="red",
                 attrs=[BOLD],
-            ),
-            "is wrong answer.",
+            )
         )
 
-        print(
-            "Correct answer was",
-            colored(
-                "{b}".format(b=correct),
-                color="green",
-                attrs=[BOLD],
-            ),
-        )
+        # print(
+        #     "Correct answer was",
+        #     colored(
+        #         "{b}".format(b=correct),
+        #         color="green",
+        #         attrs=[BOLD],
+        #     ),
+        # )
 
-        cprint(
-            "Let's try again, {name}!\n".format(name=user.name),
-            color="yellow",
-            attrs=[BOLD],
-        )
+        # cprint(
+        #     "Let's try again, {name}!\n".format(name=user.name),
+        #     color="yellow",
+        #     attrs=[BOLD],
+        # )
 
-        break
+        round_count += 1
+        # user.score -= 1
 
     else:
         cprint(

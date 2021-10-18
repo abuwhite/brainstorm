@@ -1,7 +1,8 @@
 from datetime import datetime
+from brainstorm.config import db_params
 from pony.orm import *
 
-from brainstorm.config import db_params
+
 
 db = Database()
 

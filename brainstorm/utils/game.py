@@ -1,6 +1,6 @@
 """Game module."""
 
-from brainstorm.utils.colors import style3
+from brainstorm.utils.colors import menu
 from PyInquirer import prompt
 from termcolor import cprint
 
@@ -31,7 +31,7 @@ def get_game():
 
     return prompt(
         question,
-        style=style3,
+        style=menu,
     ).get("game")
 
 
@@ -41,9 +41,9 @@ def print_title(self):
     Args:
         self: Other string data.
     """
-    print()
+    # print('-' * len(self))
     cprint(
         self,
-        attrs=["bold"],
+        attrs=["reverse"],
     )
-    print('=' * len(self))
+    # print('-' * len(self))

@@ -1,6 +1,6 @@
 """Player module."""
 
-from brainstorm.utils.colors import style1, style3
+from brainstorm.utils.colors import menu
 from PyInquirer import prompt
 
 
@@ -21,7 +21,7 @@ def is_ready():
 
     return prompt(
         question,
-        style=style1,
+        style=menu,
     ).get("continue")
 
 
@@ -41,5 +41,5 @@ def get_name():
 
     return prompt(
         question,
-        style=style3,
+        style=menu,
     ).get("player")

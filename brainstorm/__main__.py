@@ -15,98 +15,167 @@ from termcolor import colored
 from brainstorm.db.models import Players
 
 
-class GameShell(cmd.Cmd):
-    """Game Shell."""
+class GameFlag:
+    def __init__(self):
+        self._flag = True
 
-    intro = colored("Press [ENTER] to start", attrs=["reverse"])
+    @property
+    def get_flag(self):
+        return self._flag
 
-    prompt = "> "
+    @get_flag.setter
+    def get_flag(self, value):
+        self._flag = value
 
-    def emptyline(self):
-        """Start the engine after pressing the ENTER button.
 
-        Returns:
-            object: Menu function.
-        """
-        if self.prompt:
-            return self.do_menu(self)
+def main():
+    """Get menu.
 
-    def default(self, line):
-        """Get default method.
+    Args:
+        self: Object
 
-        Args:
-            line: Default line.
-        """
-        print("I do not understand that command.")
-        print("Type help or ? to list commands.\n")
+    Returns:
+        object: Stats or Exit
+    """
+    menu = get_menu()
 
-    @staticmethod
-    def do_menu(self):
-        """Get menu.
+    if menu.play:
+        ready = player.is_ready()
+        if not ready:
+            return main()
 
-        Args:
-            self: Object
+        user.name = player.get_name()
+        engine.run(
+            MODULES[game.get_game()],
+            user=user,
+        )
 
-        Returns:
-            object: Stats or Exit
-        """
-        menu = get_menu()
+    elif menu.stats:
+        return get_stats()
 
-        if menu.play:
-            ready = player.is_ready()
-            if not ready:
-                return self.do_menu(self)
+    elif menu.exit:
+        return get_out()
 
-            user.name = player.get_name()
-            engine.run(
-                MODULES[game.get_game()],
-                user=user,
-            )
 
-        elif menu.stats:
-            return self.do_stats(self)
+def get_stats():
+    """Stats           -- show statistics.
 
-        elif menu.exit:
-            return self.do_exit(self)
+    Args:
+        line: pass
+    """
 
-    @staticmethod
-    def do_stats(line=None):
-        """Stats           -- show statistics.
+    @db_session
+    def show_data():
+        persons = Players.select(lambda p: p.name).order_by(desc(Players.score))
+        persons.show()
 
-        Args:
-            line: pass
-        """
+    show_data()
 
-        @db_session
-        def show_data():
-            persons = select(p for p in Players)
-            persons.show()
-        show_data()
-        # print("  Player:", user.name)
-        # print(
-        #     "  Score :",
-        #     user.score,
-        #     NEWLINE,
-        # )
 
-    @staticmethod
-    def do_exit(line=None):
-        """Exit           -- finish the game.
+def get_out():
+    """Exit           -- finish the game.
 
-        Args:
-            line: Pass
+    Returns:
+        bool: Bool true.
+    """
+    flag.get_flag = False
 
-        Returns:
-            bool: Bool true.
-        """
-        return True
+
+# class GameShell(cmd.Cmd):
+#     """Game Shell."""
+#
+#     intro = colored("Press [ENTER] to start", attrs=["reverse"])
+#
+#     prompt = "> "
+#
+#     def emptyline(self):
+#         """Start the engine after pressing the ENTER button.
+#
+#         Returns:
+#             object: Menu function.
+#         """
+#         if self.prompt:
+#             return self.do_menu(self)
+#
+#     def default(self, line):
+#         """Get default method.
+#
+#         Args:
+#             line: Default line.
+#         """
+#         print("I do not understand that command.")
+#         print("Type help or ? to list commands.\n")
+#
+#     @staticmethod
+#     def do_menu(self):
+#         """Get menu.
+#
+#         Args:
+#             self: Object
+#
+#         Returns:
+#             object: Stats or Exit
+#         """
+#         menu = get_menu()
+#
+#         if menu.play:
+#             ready = player.is_ready()
+#             if not ready:
+#                 return self.do_menu(self)
+#
+#             user.name = player.get_name()
+#             engine.run(
+#                 MODULES[game.get_game()],
+#                 user=user,
+#             )
+#
+#         elif menu.stats:
+#             return self.do_stats(self)
+#
+#         elif menu.exit:
+#             return self.do_exit(self)
+#
+#     @staticmethod
+#     def do_stats(line=None):
+#         """Stats           -- show statistics.
+#
+#         Args:
+#             line: pass
+#         """
+#
+#         @db_session
+#         def show_data():
+#             persons = Players.select(lambda p: p.name).order_by(desc(Players.score))
+#             # persons = select(p.name for p in Players).order_by(desc(Players.score))
+#             persons.show()
+#         show_data()
+#         # print("  Player:", user.name)
+#         # print(
+#         #     "  Score :",
+#         #     user.score,
+#         #     NEWLINE,
+#         # )
+#
+#     @staticmethod
+#     def do_exit(line=None):
+#         """Exit           -- finish the game.
+#
+#         Args:
+#             line: Pass
+#
+#         Returns:
+#             bool: Bool true.
+#         """
+#         return True
 
 
 if __name__ == "__main__":
-    print("Welcome to the OASIS!", "\n")
+    print("Welcome to the BRAINSTORM!", "\n")
 
     try:
-        GameShell().cmdloop()
+        flag = GameFlag()
+        while flag.get_flag:
+            main()
     except Exception:
         print("Oops, everything seems to have fallen")
 
