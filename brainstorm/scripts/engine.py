@@ -21,7 +21,7 @@ def get_answer(text):
         {
             "type": "input",
             "name": "answer",
-            "message": "{ask} =".format(ask=text),
+            "message": "{ask}".format(ask=text),
         },
     ]
 
@@ -46,26 +46,20 @@ def run(game, user):
         answer = get_answer(question)
 
         if answer == correct:
-            # cprint("Correct!", "green")
-            print(
-                colored(
-                    "+1",
-                    color="green",
-                    attrs=[BOLD],
-                ),
-                "point",
-            )
+            cprint("Right!", "green")
+            # print(
+            #     colored(
+            #         "+1",
+            #         color="green",
+            #         attrs=[BOLD],
+            #     ),
+            #     "point",
+            # )
             round_count += 1
             user.score += 1
             continue
 
-        print(
-            colored(
-                "Wrong!",
-                color="red",
-                attrs=[BOLD],
-            )
-        )
+        cprint("Wrong!", "red")
 
         # print(
         #     "Correct answer was",
@@ -83,11 +77,10 @@ def run(game, user):
         # )
 
         round_count += 1
-        # user.score -= 1
 
     else:
         cprint(
-            "Congratulations, {name}!\n".format(name=user.name),
+            "Поздравляем, {name}".format(name=user.name),
             color="magenta",
             attrs=[BOLD],
         )
